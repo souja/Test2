@@ -2,44 +2,112 @@ const api = require('../../utils/api.js');
 const py = require('../../utils/py.js');
 const app = getApp();
 
+Date.prototype.Format = function(fmt) {
+  var o = {
+    "M+": this.getMonth() + 1, //月份 
+    "d+": this.getDate(), //日 
+    "h+": this.getHours(), //小时 
+    "m+": this.getMinutes(), //分 
+    "s+": this.getSeconds(), //秒 
+    "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+    "S": this.getMilliseconds() //毫秒 
+  };
+  if (/(y+)/.test(fmt))
+    fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+  for (var k in o) {
+    if (new RegExp("(" + k + ")").test(fmt)) {
+      fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+    }
+  }
+  return fmt;
+}
+
 Page({
   data: {
-		id: '',
-		status: 'unpaid',
-		currentNav: "normal",
-		navFirstClass: "nav-item-on",
-		navSecondClass: "",
-		showCancelDialog: false,
-		showCancelSuccessDialog: false
-	},
-	onLoad(opt) {
-		if (opt.id) {
-			this.setData({
-				id: opt.id
-			})
-		}
-	},
-	preventTouchMove() {},
-	onTapShowCancelDialog() {
-		this.setData({
-			showCancelDialog: true
-		})
-	},
-	onTapHideCancelDialog() {
-		this.setData({
-			showCancelDialog: false
-		})
-	},
-	onTapRealCancelOrder() {
-		// TODO test
-		this.setData({
-			showCancelDialog: false,
-			showCancelSuccessDialog: true
-		})
-	},
-	onTapCloseSuccessDialog() {
-		this.setData({
-			showCancelSuccessDialog: false
-		})
-	}
+    weekMap: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
+    status: 'unpaid',
+    currentNav: "normal",
+    navFirstClass: "nav-item-on",
+    navSecondClass: "",
+    showCancelDialog: false,
+    showCancelSuccessDialog: false
+  },
+  onLoad(opt) {
+    this.getOrderDetail();
+    var dateIn = new Date(app.curOrder.startDate);
+    var dateOut = new Date(app.curOrder.endDate);
+
+    var inDateStr = dateIn.Format("yyyy-MM-dd");
+    var inDateArr = inDateStr.split('-');
+    var descIn = inDateArr[1] + '月' + inDateArr[2] + '日';
+    var inDateWeek = this.data.weekMap[app.toDate(inDateStr).getDay()]
+    descIn += " " + inDateWeek;
+    console.log(descIn);
+
+    var outDateStr = dateOut.Format("yyyy-MM-dd");
+    var outDateArr = outDateStr.split('-');
+    var descOut = outDateArr[1] + '月' + outDateArr[2] + '日';
+    var outDateWeek = this.data.weekMap[app.toDate(outDateStr).getDay()]
+    descOut += " " + outDateWeek;
+    console.log(descOut);
+
+    var rentDays = app.calcDays(dateIn, dateOut);
+    console.log(rentDays + "晚");
+
+    this.setData({
+      rentDays: rentDays,
+      inDesc: descIn,
+      outDesc: descOut,
+      orderDetail: app.curOrder
+    })
+  },
+
+  getOrderDetail() {
+    var requestParam = {
+      condition: [{
+        field: 'id',
+        op: '=',
+        value: app.curOrder.id
+      }]
+    };
+
+    api._post('/pairesBooking/search', requestParam).then(res => {
+      console.log(res)
+
+      if (res.status == 200) {
+
+        console.log("获取订单详情成功");
+
+      } else {
+        var errMsg = res.errmsg;
+        console.log("获取订单详情成功失败 " + errMsg);
+      }
+    }).catch(e => {
+      console.log(e)
+    })
+
+  },
+  preventTouchMove() {},
+  onTapShowCancelDialog() {
+    this.setData({
+      showCancelDialog: true
+    })
+  },
+  onTapHideCancelDialog() {
+    this.setData({
+      showCancelDialog: false
+    })
+  },
+  onTapRealCancelOrder() {
+    // TODO test
+    this.setData({
+      showCancelDialog: false,
+      showCancelSuccessDialog: true
+    })
+  },
+  onTapCloseSuccessDialog() {
+    this.setData({
+      showCancelSuccessDialog: false
+    })
+  }
 })

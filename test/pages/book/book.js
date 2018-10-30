@@ -149,44 +149,6 @@ Page({
     }
 
   },
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-    if (app.globalData.moveInOut != null) {
-      console.log("date ready");
-    } else {
-      console.log("date !ready");
-    }
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
-  },
   ///////////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////////
   dateInit: function(setYear, setMonth) { //全部时间的月份都是按0~11基准，显示月份才+1
@@ -539,8 +501,8 @@ Page({
     })
   },
   calcRentDays: function(indate, outdate) {
-    var date1 = this.toDate(indate);
-    var date2 = this.toDate(outdate);
+    var date1 = app.toDate(indate);
+    var date2 = app.toDate(outdate);
 
     //时间差的毫秒数
     var date3 = date2.getTime() - date1.getTime();
@@ -549,18 +511,5 @@ Page({
     this.setData({
       rentDays: days
     })
-  },
-  toDate: function(dateString) {
-    var DATE_REGEXP = new RegExp("(\\d{4})-(\\d{2})-(\\d{2})([T\\s](\\d{2}):(\\d{2}):(\\d{2})(\\.(\\d{3}))?)?.*");
-    if (DATE_REGEXP.test(dateString)) {
-      var timestamp = dateString.replace(DATE_REGEXP, function($all, $year, $month, $day, $part1, $hour, $minute, $second, $part2, $milliscond) {
-        var date = new Date($year, $month, $day, $hour || "00", $minute || "00", $second || "00", $milliscond || "00");
-        return date.getTime();
-      });
-      var date = new Date();
-      date.setTime(timestamp);
-      return date;
-    }
-    return null;
   }
 })

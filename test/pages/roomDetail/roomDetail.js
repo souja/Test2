@@ -87,7 +87,6 @@ Page({
     //   cover: aptObj.cover
     // }
     // var aptStr = JSON.stringify(tempObj);
-    // app.curAptInfo = tempObj;
     var aptInfo = this.data.roomDetail;
     console.log("apId:" + aptInfo.id);
     var roomIndex = this.data.activeIndex;

@@ -4,14 +4,12 @@ const app = getApp()
 
 Page({
   data: {
-    nick: null,
-    real: null,
-    wxNo: null,
-    aptId: null,
-    roomId: null,
+    nick: "Souja",
+    real: "杨德钊",
+    wxNo: "soul_young",
     idType: "chinaID",
-    idNo: null,
-    phoneNo: null,
+    idNo: "511028198909161054",
+    phoneNo: "18628084571",
     items: [{
         name: 'chinaID',
         value: '身份证',

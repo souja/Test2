@@ -63,9 +63,10 @@ const setCookieByHead = (head) => {
   if (head && head['Set-Cookie']) {
     console.log('当前请求返回的cookie:' + head['Set-Cookie']);
     setCookie(head['Set-Cookie']);
-  } else {
-    console.log('当前请求无cookie');
-  }
+  } 
+  // else {
+  //   console.log('当前请求无cookie');
+  // }
 }
 
 const setCookie = (str) => {
@@ -130,15 +131,15 @@ const http = ({
   if (cookie)
     header['Cookie'] = cookie;
 
-  var _token = getApp().pUserInfo != null ? getApp().pUserInfo._sessionToken : null;
-  if (_token != null) {
-    header['_sessionToken'] = _token;
-    header['sessionid'] = _token;
-    header['sessionId'] = _token;
-    header['session'] = _token;
-  }
+  // var _token = getApp().pUserInfo != null ? getApp().pUserInfo._sessionToken : null;
+  // if (_token != null) {
+  //   header['_sessionToken'] = _token;
+  //   header['sessionid'] = _token;
+  //   header['sessionId'] = _token;
+  //   header['session'] = _token;
+  // }
 
-  console.log("request header:" + JSON.stringify(header));
+  // console.log("request header:" + JSON.stringify(header));
 
   return new Promise((resolve, reject) => {
     wx.request({

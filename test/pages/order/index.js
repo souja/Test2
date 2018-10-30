@@ -41,5 +41,8 @@ Page({
         navSecondClass: "nav-item-on"
       })
     }
+  },
+  onShow: function() {
+    if (app.curOrder != null) app.curOrder = null;
   }
 })

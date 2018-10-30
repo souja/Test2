@@ -36,6 +36,35 @@ App({
     }
     return true;
   },
+  toDate: function(dateString) {
+    var DATE_REGEXP = new RegExp("(\\d{4})-(\\d{2})-(\\d{2})([T\\s](\\d{2}):(\\d{2}):(\\d{2})(\\.(\\d{3}))?)?.*");
+    if (DATE_REGEXP.test(dateString)) {
+      var timestamp = dateString.replace(DATE_REGEXP, function($all, $year, $month, $day, $part1, $hour, $minute, $second, $part2, $milliscond) {
+        var date = new Date($year, $month, $day, $hour || "00", $minute || "00", $second || "00", $milliscond || "00");
+        return date.getTime();
+      });
+      var date = new Date();
+      date.setTime(timestamp);
+      return date;
+    }
+    return null;
+  },
+  calcRentDays: function(indate, outdate) {
+    var date1 = app.toDate(indate);
+    var date2 = app.toDate(outdate);
+
+    //时间差的毫秒数
+    var date3 = date2.getTime() - date1.getTime();
+    //计算出相差天数
+    var days = Math.floor(date3 / (24 * 3600 * 1000));
+  },
+  calcDays: function(indate, outdate) {
+    //时间差的毫秒数
+    var date3 = outdate.getTime() - indate.getTime();
+    //计算出相差天数
+    var days = Math.floor(date3 / (24 * 3600 * 1000));
+    return days;
+  },
   getNowFormatDate: function() {
     var date = new Date();
     var seperator1 = "-";
@@ -114,5 +143,5 @@ App({
     moveInOut: null
   },
   pUserInfo: null, //Paires用户信息
-  curAptInfo: null
+  curOrder: null
 })

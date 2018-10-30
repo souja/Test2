@@ -189,7 +189,7 @@ Page({
       wx.navigateTo({
         url: '../finishRegister/finishRegister?phone=' + app.pUserInfo.mobile
       })
-    } else {
+    } else if (!app.pUserInfo.isLinkWeAPP) {
       api._post(app.urls.bindAccount, {
         code: app.globalData.wxCode
       }).then(res => {
