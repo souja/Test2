@@ -1,0 +1,66 @@
+<!--index.wxml-->
+<view class="main">
+  <view class='head'>
+    <view class='title'>
+      <text class='title_font'>入住资料</text>（2/2）
+    </view>
+  </view>
+  <view class='body'>
+    <view class='back'>
+      <text class='confirm_info'>确认入住资料</text>
+      <text class='remind'>以下信息请正确填写，便于客服引导你入住</text>
+      <view class='btn_back'>
+        <view class='btn_view'>
+          <text class='nick_name_content content_'>昵称</text>
+          <text class='star'>*</text>
+          <input class='nick_input input_' placeholder='请输入昵称' bindinput='syncNick' placeholder-style="font-size:12px" type="text"></input>
+        </view>
+        <view class='btn_view'>
+          <text class='real_name_content content_'>真实姓名</text>
+          <text class='star'>*</text>
+          <input class='real_input input_' placeholder='请输入姓名' bindinput='syncReal' placeholder-style="font-size:12px" type="text"></input>
+        </view>
+        <view class='btn_view'>
+          <text class='wx_name_content content_'>微信号</text>
+          <text class='star'>*</text>
+          <input class='wx_input input_' placeholder='请输入微信号' bindinput='syncWxNo' placeholder-style="font-size:12px" type="text"></input>
+        </view>
+      </view>
+      <view class='btn_back'>
+        <view class='btn_view_line'>
+          <text class='card_content content_'>证件信息</text>
+          <text class='star'>*</text>
+          <radio-group class="radio-group" bindchange="radioChange">
+            <label class="radio" wx:for="{{items}}" wx:key="index">
+              <radio value="{{item.name}}" checked="{{item.checked}}" color="#59B272" /> {{item.value}}
+            </label>
+          </radio-group>
+        </view>
+        <view class='btn_view_line'>
+          <text class='card_number_content content_'>证件号码</text>
+          <text class='star'>*</text>
+          <input class='card_input input_' placeholder='请输入证件号' bindinput='syncIdNo' placeholder-style="font-size:12px" type="text"></input>
+        </view>
+
+      </view>
+      <view class='btn_back'>
+        <view class='btn_view_line'>
+          <text class='phone_number_content content_'>手机号</text>
+          <text class='star'>*</text>
+          <view class='phone_input_back'>
+            <picker class='picker_ass' bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+              <view class="picker">
+                {{array[index]}}
+                <text style='float:right;margin-right:10px;'>▼</text>
+              </view>
+            </picker>
+            <input class='phone_input' placeholder='请输入手机号' bindinput='syncPhone' placeholder-style="font-size:12px" type="text"></input>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='footer'>
+    <button class='pay_btn' bindtap='pay'>确认并付款</button>
+  </view>
+</view>

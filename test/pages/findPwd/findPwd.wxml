@@ -1,0 +1,21 @@
+<!--pages/findPwd/findPwd.wxml-->
+<view class='content'>
+  <text class='font40 blackText'>找回密码</text>
+  <text class='font32 tip'>请输入您的注册手机号</text>
+
+
+  <view class='inputBg phoneArea'>
+    <text class='font28 grayText text1'>中国+86</text>
+    <image class='arrow' src='../../res/imgs/arrow_down.png'></image>
+    <view class='verLine'></view>
+    <input type='number' class='blackText font28' placeholder='手机号码' placeholder-class='grayText font28' maxlength='11'></input>
+  </view>
+
+  <view class='verifyArea'>
+    <input class='font28 blacktext inputBg inputBg2' placeholder='图片验证' placeholder-class='grayText font28' maxlength='4'></input>
+    <image class='verifyImg'></image>
+  </view>
+
+  
+  <button class='yellowBg blackText font32 btn' hover-class='grayBg' bindtap='goVerify'>下一步</button>
+</view>

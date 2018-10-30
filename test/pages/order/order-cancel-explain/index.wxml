@@ -1,0 +1,22 @@
+<view class="title">客人取消入住政策：</view>
+<view class="content-item">
+	<view class="content-color content-color-green"></view>
+	<view class="content-detail-limit" style="width: {{ width }}">
+		<view class="detail-important">入住前5天取消订单：全额退款</view>
+		要获得住宿费用的全额退款，房客须在入住日当天入住时间（房源当地时间；若未特别注明，则以下午3点为准）的5天之前取消预订。如，如入住日期是周五，则需在前一个周日的入住时间之前取消预订。
+	</view>
+</view>
+<view class="content-item">
+	<view class="content-color content-color-yellow"></view>
+	<view class="content-detail-limit" style="width: {{ width }}">
+		<view class="detail-important">入住前5天内取消订单：第一晚外其余退款50%</view>
+		如果房客提前不到5天退订，则第一晚的费用将不可退还，但余下的晚数将退还50%的费用。
+	</view>
+</view>
+<view class="content-item">
+	<view class="content-color content-color-red"></view>
+	<view class="content-detail-limit" style="width: {{ width }}">
+		<view class="detail-important">入住期间取消订单：剩余夜晚退款50%</view>
+		如果房客已入住但决定提前退房，那么退订发生24小时后未住宿的天数将退还50%的房费。
+	</view>
+</view>

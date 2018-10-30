@@ -1,0 +1,205 @@
+<scroll-view scroll-y='1' hidden='{{hideMain}}'>
+
+  <view class='title'>
+    预订公寓（1/2）
+  </view>
+  <view class='checkOrder'>
+    <view class='check-title'>
+      查看预订信息
+    </view>
+    <view class='order-detail'>
+      <view class='date' bindtap='chooseTime'>
+        <view class='in-date'>
+          <view class='date-text fl'>
+            入住
+          </view>
+          <view class='date-time fl'>
+            <view>{{hotelDate.inday}} 周{{hotelDate.inweek}}</view>
+          </view>
+        </view>
+        <view class='separate-line'></view>
+        <view class='out-date'>
+          <view class='date-text fl out-text'>
+            搬出
+          </view>
+          <view class='date-time fl'>
+            <view>{{hotelDate.outday}} 周{{hotelDate.outweek}}</view>
+          </view>
+        </view>
+      </view>
+      <view class='hotel-pic clearfix'>
+        <image src='{{aptInfo.cover}}' model="aspectFit"></image>
+      </view>
+      <view class='address'>
+        <view class='fl address-label'>地址</view>
+        <view class='fl address-info'>
+          {{aptInfo.city.text}}{{aptInfo.district.text}} {{aptInfo.fullTitle}}
+        </view>
+      </view>
+    </view>
+    <!-- 房间信息 -->
+    <view class='hotel-info'>
+      <view class='check-title'>
+        房间信息
+      </view>
+      <view class='hotel-info-desc'>
+        <picker bindchange="bindPickerChange" value="{{roomIndex}}" data-type='hotelInfo' range="{{hotelInfo}}">
+          <!-- <view class='choose' style='float:right;margin-top:-23px;'>
+              <view class='arrowDown'></view>
+            </view> -->
+          <view class='choose-info'>{{hotelInfo[roomIndex]}}</view>
+          <image src='../../res/imgs/miniArrow.png'></image>
+        </picker>
+      </view>
+
+      <view class='check-title people-num'>
+        人数
+      </view>
+      <view class='hotel-info-desc'>
+        <picker bindchange="bindPickerChange" value="{{countIndex}}" data-type='hotelnum' range="{{hotelpeople}}">
+          <!-- <view class='choose' style='float:right;margin-top:-23px;'>
+              <view class='arrowDown'></view>
+            </view> -->
+          <view class='choose-info'>{{hotelpeople[countIndex]}}</view>
+          <image src='../../res/imgs/miniArrow.png'></image>
+        </picker>
+      </view>
+
+      <view class='price {{showDeatil?"price-show-detail":""}}'>
+        <view class='price-title'> 合计</view>
+        <view class='total-price'>
+          <view class='price-num'>¥{{priceObj.actualRent*rentDays+priceObj.cleaningFee+priceObj.facilityFee+priceObj.deposit}} </view>
+          <view class='price-info' bindtap='priceDetail'>了解价格细节</view>
+        </view>
+      </view>
+      <view class='price-detail' wx:if="{{showDeatil}}">
+
+        <view class='price-item'>
+          <!--租金-->
+          <view class='item-price-top'>
+            <label class='item-title fl'>¥{{priceObj.actualRent}} x {{rentDays}} 晚</label>
+            <label class='item-price item-price-total fr'>¥{{priceObj.originalRent*rentDays}}</label>
+            <view class='item-desc'>
+              <label class='desc fl'> 入住一个月及以上，享 20% 折扣</label>
+              <label class='item-price fr'>{{priceObj.actualRent*rentDays}}</label>
+            </view>
+          </view>
+        </view>
+        <view class='price-item'>
+          <!--清洁费-->
+          <view class='item-price-top'>
+            <label class='item-title fl'>清洁费</label>
+            <label class='item-price fr'>¥{{priceObj.cleaningFee}}</label>
+            <view class='item-desc'>
+              <label class='desc fl'> 入住前及入住后的房屋清洁 </label>
+            </view>
+          </view>
+        </view>
+        <view class='price-item'>
+          <!--客房设施-->
+          <view class='item-price-top'>
+            <label class='item-title fl'>客房设施</label>
+            <label class='item-price fr'>¥{{priceObj.facilityFee}}</label>
+            <view class='item-desc'>
+              <label class='desc fl'>
+                入住30天及以上，免费赠 150 元水电气，超额部分可通过客服自行付款。
+                <view class="toLink">
+                  Juccc节能计划
+                </view>
+              </label>
+            </view>
+          </view>
+        </view>
+        <view class='price-item'>
+          <!--押金-->
+          <view class='item-price-top'>
+            <label class='item-title fl'>押金</label>
+            <label class='item-price fr'>¥{{priceObj.deposit}}</label>
+            <view class='item-desc'>
+              <label class='desc fl'> 押金将在客人搬出后 2 小时内退还 </label>
+            </view>
+          </view>
+        </view>
+
+        <view class="price-item">
+          <view class="item-price-top">
+            <label class="item-title item-title-total fl">合计</label>
+            <label class="item-price fr  price-total">
+              ¥{{priceObj.actualRent*rentDays+priceObj.cleaningFee+priceObj.facilityFee+priceObj.deposit}}
+            </label>
+          </view>
+        </view>
+      </view>
+
+
+      <view class='foot'>
+        <navigator url="/pages/notice/notice">
+          <view class='item-title clearfix care'>
+            注意事项
+            <image src='../../res/imgs/rightArr.png'></image>
+          </view>
+        </navigator>
+
+        <navigator url="/pages/order/order-explain/index">
+          <view class='item-title clearfix care'>
+            押金及退款政策
+            <image src='../../res/imgs/rightArr.png'></image>
+          </view>
+        </navigator>
+
+      </view>
+      <view class='clearfix'></view>
+      <view class='agree claearfix'>
+        <checkbox-group bindchange="agreeProtocol">
+          <checkbox value='1' />
+        </checkbox-group>
+        我已同意Paires友舍平台的
+        <label class='agreement'>服务协议</label>
+      </view>
+    </view>
+    <!-- button -->
+  </view>
+  <view class='button' bindtap='nextInfo'>
+    下一步
+  </view>
+</scroll-view>
+
+<scroll-view scroll-y='1' hidden='{{hidePicker}}'>
+  <view class='wrap'>
+    <view class="cancel" bindtap='cancel'>X</view>
+    <view class="top">
+      <view class="in-date fl">
+        <view class='txt'>入驻时间</view>
+        <view>{{inDate}}</view>
+      </view>
+      <view class="out-date fl">
+        <view class='txt'>搬出时间</view>
+        <view>{{outDate}}</view>
+      </view>
+    </view>
+    <view class='clearfix'></view>
+    <view class='header'>
+      <view wx:for='{{date}}' wx:key="{{index}}">
+        {{item}}
+      </view>
+    </view>
+    <view wx:for="{{dateNums}}" wx:key="{{index}}" wx:for-item="item">
+      <view>
+        <view class='date-show'>
+          {{item.month}}月 {{item.year}}年
+        </view>
+      </view>
+      <view class='date-box'>
+        <view wx:for='{{item.dateArr}}' wx:key="{{index}}" wx:for-item="itemName" class='{{(isToday == itemName.isToday||outToday == itemName.isToday) ?"nowDay" : ""}}' data-date='{{item.isToday}}'>
+          <view class='date-head {{(itemName.isToday < outToday&& itemName.isToday >isToday&&!chooseStatus)||(itemName.isToday >outToday&& itemName.isToday < isToday &&!chooseStatus)?"chooseDay":"2"}}'>
+            <view bindtap='chooseDate' data-date="{{itemName.isToday}}">
+              {{nowDay == itemName.isToday?'今天':itemName.dateNum}}
+            </view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+
+  </view>
+</scroll-view>

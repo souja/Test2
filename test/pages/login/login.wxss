@@ -1,0 +1,15 @@
+@import '../template/template.wxss';
+@import '../register/register.wxss';
+.forgetpwd{
+  float: right;
+  margin-right: 56rpx;
+  margin-top: 20rpx;
+}
+.mbtn{
+  width: 640rpx;
+  height: 100rpx;
+  display: block;
+  margin-left: 0rpx;
+  margin-top: 100rpx;
+  line-height: 100rpx;
+}

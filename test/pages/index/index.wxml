@@ -1,0 +1,95 @@
+<import src='../template/template.wxml' />
+
+<view class='search-area'>
+  <view class='input-container'>
+    <icon type='search' size='14' color='#251F1F'></icon>
+    <input maxlength='20' placeholder='目的地' disabled='true' placeholder-class='grayText font28' bindtap='goSearch'></input>
+  </view>
+</view>
+
+<scroll-view class='body' scroll-y="true">
+  <view wx:if='{{test}}'>{{success}}</view>
+  <view wx:if='{{test}}'>{{fail}}</view>
+  <text class='title-city font32 blackText'>城市 City</text>
+
+  <block wx:if='{{cities==null}}'>
+    <text class='font28 grayText textCenterB m-loading'>加载中...</text>
+  </block>
+
+  <block wx:else>
+
+    <block wx:if='{{cities.length>0}}'>
+      <scroll-view class="city-scroll" scroll-x="true">
+        <view class='city-item' wx:for="{{cities}}" wx:key="cityies">
+          <image src='{{item.src}}'></image>
+          <view class='text-area'>
+            <text class='font32'>{{item.text}}</text>
+            <text class='font24'>{{item.cityPy}}</text>
+          </view>
+        </view>
+
+        <view class='list-end'></view>
+      </scroll-view>
+    </block>
+
+    <block wx:elif='{{cityErrMsg}}'>
+      <text class='font28 grayText textCenterB nodata' bindtap='getCities'>{{cityErrMsg}}</text>
+    </block>
+    
+    <block wx:else>
+      <text class='font28 grayText textCenterB nodata'>暂无数据</text>
+    </block>
+
+  </block>
+
+
+  <text class='title-popular font32 blackText pfb'>热门公寓 Popular</text>
+
+
+  <block wx:if='{{apartments==null}}'>
+    <text class='font28 grayText textCenterB m-loading'>加载中...</text>
+  </block>
+  <block wx:else>
+    <block wx:if='{{apartments.length>0}}'>
+      <scroll-view class="apartment-scroll" scroll-y="true">
+
+        <block wx:for="{{apartments}}" wx:key="keys" wx:for-index='i'>
+
+          <text class='font28 blackText city-lit'>{{item.name}} {{item.py}}</text>
+
+          <scroll-view class="apart-child-scroll" scroll-x="true">
+            <view class="apart-child-item" wx:for="{{item.list}}" wx:for-item='room' wx:key="apartChild" bindtap='goRoomDetail' data-aid='{{room.id}}' data-src='{{room.mBrandSrc}}'>
+
+              <image src='{{room.cover}}'></image>
+
+              <view class='ap-bot-container'>
+                <view class='apart-text-container'>
+                  <text class='font28 blackText nowarp'>{{room.description}}</text>
+                  <view class='ap-text-bot'>
+                    <text class='blackText ap-price'>￥{{room.aptTotalPricePerDay}} 起</text>
+                    <view class='ap-divider'></view>
+                    <text class='ap-address'>{{room.businessDistrict.text}}</text>
+                  </view>
+                </view>
+                <image src='{{room.mBrandSrc}}' style='width:80rpx;height:80rpx;'></image>
+              </view>
+
+            </view>
+            <view class='list-end'></view>
+          </scroll-view>
+        </block>
+      </scroll-view>
+
+    </block>
+
+    <block wx:else>
+      <text class='font28 grayText textCenterB nodata'>暂无数据</text>
+    </block>
+
+  </block>
+
+
+</scroll-view>
+
+
+<template is='mNavigation' data='{{naviIndex}}'></template>

@@ -1,0 +1,70 @@
+<import src='../template/template.wxml' />
+
+<scroll-view scroll-y='true'>
+  <view class='top-container'>
+
+    <canvas canvas-id='stara' style='position:absolute;top:0;left:0;'></canvas>
+    <canvas canvas-id='starb' style='position:absolute;top:0;left:0;'></canvas>
+    <canvas canvas-id='starc' style='position:absolute;top:0;left:0;'></canvas>
+    <canvas canvas-id='stard' style='position:absolute;top:0;left:0;'></canvas>
+    <canvas canvas-id='starc' style='position:absolute;top:0;left:0;'></canvas>
+    <canvas canvas-id='stare' style='position:absolute;top:0;left:0;'></canvas>
+    <canvas canvas-id='starf' style='position:absolute;top:0;left:0;'></canvas>
+
+    <view class='headicon-area'>
+      <block wx:if="{{hasUserInfo}}">
+        <image src='{{userInfo.avatarUrl}}' class='head-icon'></image>
+      </block>
+
+      <image src='../../res/imgs/ic_head_bg.png' class='head-bg'></image>
+    </view>
+    <block wx:if="{{!hasUserInfo && canIUse}}">
+      <view class='nickArea'>
+        <button class='authBtn' open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+          点击登录
+        </button>
+      </view>
+    </block>
+    <view wx:else class='nickArea'>
+      <text class='font28' bindtap='checkPUInfo'>{{userInfo.nickName}}</text>
+    </view>
+
+    <view class='vSet'>
+      <image src='../../res/imgs/ic_setting.png' class='settingIcon'></image>
+    </view>
+  </view>
+
+  <view class='contentBg'>
+    <view class='top-menu'>
+      <button class='transBg' hover-class='grayBg'>{{weilai}} 未来入住</button>
+      <view></view>
+      <button class='transBg' hover-class='grayBg'>{{zhengzai}} 正在确认</button>
+      <view></view>
+      <button class='transBg' hover-class='grayBg'>{{wancheng}} 完成旅程</button>
+    </view>
+
+		<view class="nav-menu-wrap">
+			<navigator url="/pages/order/index" class="nav-menu-item">
+				<image src='../../res/imgs/menu_bg1.jpg'></image>
+				<view class="nav-menu-text">我的旅程订单</view>
+			</navigator>
+			<navigator url="../collection/collection" class="nav-menu-item">
+				<image src='../../res/imgs/menu_bg2.jpg'></image>
+				<view class="nav-menu-text">我的收藏</view>
+			</navigator>
+		</view>
+    <view style='height:1rpx;margin-top:30rpx;'></view>
+
+    <block wx:for='{{textMenuItems}}' wx:key='menus'>
+
+      <view class='text-menu-container' hover-class='grayBg'>
+        <text class='font28 blackText'>{{item.title}}</text>
+        <text decode="true" space='true' wx:if='{{item.subTitle}}' class='msub-title'>{{item.subTitle}}</text>
+        <image src='../../res/imgs/arrow.png'></image>
+      </view>
+      <view class='mdivider'></view>
+    </block>
+  </view>
+
+</scroll-view>
+<template is='mNavigation' data='{{naviIndex}}'></template>

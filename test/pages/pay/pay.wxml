@@ -1,0 +1,17 @@
+<!--logs.wxml-->
+<view class="main">
+  <view class='title'>
+    <text class='pay_title'>公寓房租交纳</text>
+    <text class='pay_price'>￥400.00</text>
+    <view class='payee_back'>
+      <text class='payee_text'>收款方</text>
+      <text class="peyee">XXX</text>
+    </view>
+  </view>
+  <view class='body'>
+    <button class='pay' bindtap='paySuccess'>立即支付</button>
+  </view>
+  <view class='footer'>
+    <text class='company_info'>成都市牛毛科技有限公司</text>
+  </view>
+</view>

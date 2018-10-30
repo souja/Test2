@@ -1,0 +1,184 @@
+@import '../template/template.wxss';
+
+scroll-view {
+  position: absolute;
+  top: 0;
+  bottom: 90rpx;
+}
+
+canvas {
+  width: 100%;
+}
+
+.top-container {
+  position: relative;
+  padding-top: 50rpx;
+  width: 100%;
+  height: 286rpx;
+  background: #251f1f;
+}
+
+.head-bg {
+  width: 170rpx;
+  height: 166rpx;
+  position: absolute;
+}
+
+.head-icon {
+  width: 115rpx;
+  height: 99rpx;
+  left: 28rpx;
+  top: 30rpx;
+  position: absolute;
+}
+
+.headicon-area {
+  margin-left: 290rpx;
+  position: relative;
+}
+
+.authBtn {
+  background: transparent;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  width: 220rpx;
+  color: white;
+  border: none;
+}
+.nickArea {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  color: white;
+  bottom: 60rpx;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.vSet {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 20rpx;
+  right: 160rpx;
+  width: 44rpx;
+  height: 44rpx;
+  justify-content: center;
+  border: .1rpx solid white;
+  border-radius: 25rpx;
+}
+
+.settingIcon {
+  width: 20rpx;
+  height: 20rpx;
+}
+
+.top-menu {
+  display: flex;
+  width: 100%;
+  height: 100rpx;
+}
+
+.top-menu button {
+  flex: 1;
+  font-size: 28rpx;
+  line-height: 100rpx;
+  color: #251f1f;
+}
+
+.transBg {
+  background-color: transparent;
+  border-radius: 0rpx;
+}
+
+.top-menu button::after {
+  background-color: transparent;
+  border: none;
+  border-radius: 0rpx;
+}
+
+.top-menu view {
+  width: 2rpx;
+  height: 50rpx;
+  margin-top: 25rpx;
+  background: #e4e4e2;
+}
+
+.img-menu-item {
+  margin-top: 30rpx;
+  width: 304rpx;
+  height: 140rpx;
+  margin-left: 48rpx;
+}
+
+.text-menu-container {
+  display: flex;
+  align-items: center;
+  padding-left: 48rpx;
+  height: 120rpx;
+  background-color: transparent;
+}
+
+.grayBg {
+  background-color: #efefef;
+}
+
+.msub-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 185rpx;
+  height: 38rpx;
+  line-height: 38rpx;
+  margin-left: 24rpx;
+  font-size: 20rpx;
+  color: white;
+  background: rgb(71, 184, 127);
+  border-radius: 5rpx;
+}
+
+.text-menu-container image {
+  width: 40rpx;
+  position: absolute;
+  right: 48rpx;
+  height: 40rpx;
+}
+
+.mdivider {
+  width: 654rpx;
+  margin-left: 48rpx;
+  background-color: rgb(35, 31, 32);
+  height: 4rpx;
+}
+
+.nav-menu-wrap {
+  margin-top: 30rpx;
+  padding-left: 48rpx;
+  display: flex;
+  height: 140rpx;
+}
+.nav-menu-item {
+  height: 140rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 46rpx;
+}
+
+.nav-menu-item image {
+  width: 304rpx;
+  height: 140rpx;
+}
+.nav-menu-item .nav-menu-text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  color: #fff;
+}

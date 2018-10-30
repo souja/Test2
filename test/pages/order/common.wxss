@@ -1,0 +1,50 @@
+/*导航*/
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  display: flex;
+  height: 100rpx;
+  background: #fff;
+  color: rgb(35,31,32);
+}
+.nav .nav-item {
+  position: relative;
+  box-sizing: border-box;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  font-weight: bold;
+  letter-spacing: 1rpx;
+  border-bottom: 4rpx solid rgb(228,228,228);
+}
+.nav .nav-item-on::after {
+  position: absolute;
+  bottom: -4rpx;
+  left: 0;
+  content: " ";
+  width: 100%;
+  height: 8rpx;
+  background: rgb(60,61,60);
+}
+.nav .nav-first::before {
+  position: absolute;
+  z-index: 10;
+  bottom: -4rpx;
+  right: -4rpx;
+  content: " ";
+  height: 8rpx;
+  width: 4rpx;
+  background: rgb(60,61,60);
+}
+.nav .nav-first {
+  border-right: 2rpx solid rgb(228,228,228);
+}
+.nav .nav-second {
+  border-left: 2rpx solid rgb(228,228,228);
+}

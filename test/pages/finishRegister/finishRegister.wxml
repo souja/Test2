@@ -1,0 +1,14 @@
+<import src='../template/template.wxml' />
+
+<template is='user-headnick' data='{{userInfo}}'></template>
+
+<view class='content'>
+  <text class='font40 blackText'>输入验证码</text>
+
+  <view class='inputBg bg1'>
+    <input class='blackText font28' placeholder='6位短信验证码' placeholder-class='grayText font28' maxlength='6' bindinput='syncCode'></input>
+    <button class='font28 blackText mbtn' disabled='{{disabled}}' bindtap='getVerificationCode'>{{time}}</button>
+  </view>
+
+  <button class='yellowBg blackText font32 btn' bindtap='doReg' hover-class='grayBg'>完成注册</button>
+</view>

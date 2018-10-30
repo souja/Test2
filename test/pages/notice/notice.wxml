@@ -1,0 +1,25 @@
+<view class="order-title">注意事项</view>
+<view class="explain-detail-wrap">
+	<view class="title"></view>
+	<view class="content-item">
+		<view class="content-item-pre">•</view>
+		<view class="content-detail">正常入住时间为下午2:00以后，退房时间为中午12:00以前。</view>
+	</view>
+	<view class="content-item">
+		<view class="content-item-pre">•</view>
+		<view class="content-detail">延迟退房，需于退房当日上午11:00前告知运营方客服或前台，并在房间可行的情况下才能进⾏。如未提前告知，运营方有权根据实际退房时间收取半⽇至多⽇费用（未提前告知的情况下，超出退房时间，会按照30元/小时收费；超过晚上18:00，则按照全天费用收取）。</view>
+	</view>
+	<view class="content-item">
+		<view class="content-item-pre">•</view>
+		<view class="content-detail">如需续房，请于退房当日上午 11:00前告知运营方客服或前台，并在房间可行的情况下才能进⾏。</view>
+	</view>
+	<view class="content-item">
+		<view class="content-item-pre">•</view>
+		<view class="content-detail">请妥善保管个人物品，运营方对客人财物损失概不负责。</view>
+	</view>
+	<view class="content-item">
+		<view class="content-item-pre">•</view>
+		<view class="content-detail">不提倡在房间内吸烟。如您在房间内吸烟，运营方有权根据房间污染或损坏状况收取额外清洁或赔偿费用，以恢复房间的正常环境。</view>
+	</view>
+
+</view>

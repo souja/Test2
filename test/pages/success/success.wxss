@@ -1,0 +1,73 @@
+.main{
+  width: 100vw;
+  height: 100vh;
+  background: #47b87f
+}
+/*头部组件*/
+.title{
+  width: 100%;
+  height: 70%
+}
+.title_fill{
+  width: 100%;
+  height: 10%
+}
+.pay_title{
+  font-size: 20px;
+  color: #fcfcfc;
+  display: inline-block;
+  width: 100%;
+  height: 12%;
+  line-height: 6vh;
+  text-align: center
+}
+.pay_price{
+  display: block;
+  font-size: 14px;
+  color: #fcfcfc;
+  margin: 0 auto;
+  width: 72%;
+  height: 18%;
+  text-align: center;
+  letter-spacing: 1px;
+  line-height: 25px;
+}
+.payee_back{
+  width: 100%;
+  height: 30%;
+}
+.qr{
+  width: 21vh;
+  height: 21vh;
+  display: block;
+  margin: 0 auto;
+}
+.wx_number{
+  display: block;
+  width: 72%;
+  height: 20%;
+  margin: 0 auto;
+  color: #fcfcfc;
+  font-size: 16px;
+  text-align: center;
+  padding-top: 5vh;
+}
+/*底部组件*/
+.footer{
+  width: 100%;
+  height: 30%;
+  background: #33875d;
+  display: flex;
+}
+.journey{
+  width: 40%;
+  margin: 0 auto;
+  height: 20%;
+  font-size: 14px;
+  border: 2px solid #fcfcfc;
+  border-radius: 6vh;
+  background: #33875d;
+  align-self: center;
+  line-height: 5.8vh;
+  color: #fcfcfc;
+}

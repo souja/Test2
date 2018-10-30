@@ -1,0 +1,37 @@
+<view class='wrap'>
+  <view class="cancel" bindtap='cancel'>X</view>
+  <view class="top">
+    <view class="in-date fl">
+      <view class='txt'>入驻时间</view>
+      <view>{{inDate}}</view>
+    </view>
+    <view class="out-date fl">
+      <view class='txt'>搬出时间</view>
+      <view>{{outDate}}</view>
+    </view>
+  </view>
+  <view class='clearfix'></view>
+  <view class='header'>
+    <view wx:for='{{date}}' wx:key="{{index}}">
+      {{item}}
+    </view>
+  </view>
+  <view wx:for="{{dateNums}}" wx:key="{{index}}" wx:for-item="item">
+    <view>
+      <view class='date-show'>
+        {{item.month}}月 {{item.year}}年
+      </view>
+    </view>
+    <view class='date-box'>
+      <view wx:for='{{item.dateArr}}' wx:key="{{index}}" wx:for-item="itemName" class='{{(isToday == itemName.isToday||outToday == itemName.isToday) ?"nowDay" : ""}}' data-date='{{item.isToday}}'>
+        <view class='date-head {{(itemName.isToday < outToday&& itemName.isToday >isToday&&!chooseStatus)||(itemName.isToday >outToday&& itemName.isToday < isToday &&!chooseStatus)?"chooseDay":"2"}}' >
+          <view bindtap='chooseDate' data-date="{{itemName.isToday}}">
+            {{nowDay == itemName.isToday?'今天':itemName.dateNum}}
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+</view>

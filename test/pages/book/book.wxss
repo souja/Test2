@@ -1,0 +1,256 @@
+@import '../test/test.wxss';
+
+.separate-line {
+  float: left;
+  border-right: 2rpx solid rgb(187, 187, 187);
+  height: 40rpx;
+  margin-left: 30rpx;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.title {
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 28rpx;
+  border-bottom: 1rpx solid rgb(228, 228, 228);
+}
+
+.checkOrder {
+  padding-top: 50rpx;
+  padding-left: 48rpx;
+}
+
+.checkOrder .check-title {
+  font-size: 32rpx;
+}
+
+.checkOrder .order-detail {
+  margin-top: 30rpx;
+  height: 526rpx;
+  width: 590rpx;
+  padding: 32rpx;
+  border: 1rpx solid rgb(151, 151, 151);
+}
+
+.date {
+  overflow: hidden;
+}
+
+.date-text {
+  width: 90rpx;
+  font-size: 24rpx;
+}
+
+.out-text {
+  margin-left: 24rpx;
+}
+
+.order-detail .date-time {
+  width: 176rpx;
+  font-size: 27rpx;
+}
+
+.order-detail .date-time .desc-time {
+  margin-top: 10rpx;
+}
+
+.hotel-pic {
+  margin-top: 20rpx;
+  width: 590rpx;
+  height: 324rpx;
+}
+
+.hotel-pic image {
+  width: 590rpx;
+  height: 324rpx;
+}
+
+.address {
+  margin-top: 16rpx;
+}
+
+.address-label {
+  width: 90rpx;
+  font-size: 24rpx;
+}
+
+.address-info {
+  font-size: 28rpx;
+  width: 500rpx;
+}
+
+/* 房间信息 */
+
+.hotel-info {
+  margin-top: 40rpx;
+  margin-bottom: 14rpx;
+}
+
+.hotel-info-desc {
+  width: 654rpx;
+  border: 1rpx solid rgb(187, 187, 187);
+  height: 84rpx;
+  margin-top: 14rpx;
+}
+
+.hotel-info-desc picker {
+  width: 654rpx;
+  height: 84rpx;
+}
+
+.hotel-info-desc image {
+  width: 16rpx;
+  height: 10rpx;
+  float: right;
+  margin-top: 37rpx;
+  margin-right: 22rpx;
+}
+
+.choose-info {
+  margin-top: 18rpx;
+  margin-left: 30rpx;
+  float: left;
+  width: 80%;
+  font-size: 32rpx;
+}
+
+.people-num {
+  margin-top: 20rpx;
+}
+
+.price {
+  width: 652rpx;
+  overflow: hidden;
+  border-bottom: 1rpx solid rgb(187, 187, 187);
+  padding-bottom: 40rpx;
+  margin-top: 46rpx;
+}
+.price-show-detail{
+  border-bottom: 5rpx solid rgb(187, 187, 187)!important;
+}
+.price-title {
+  font-size: 32rpx;
+  width: 100rpx;
+  float: left;
+}
+
+.total-price {
+  width: 234rpx;
+  text-align: right;
+  float: right;
+}
+.price-total{
+  width:200rpx!important;
+  display: inline-block;
+  font-size: 48rpx!important;
+}
+.price-num {
+  font-size: 48rpx;
+}
+
+.price-info {
+  font-size: 28rpx;
+  color: rgb(71, 184, 217);
+  letter-spacing: 2rpx;
+  margin-top: 26rpx;
+}
+
+/* 价格详情 */
+
+.price-item {
+  margin-top: 40rpx;
+  overflow: hidden;
+}
+
+.price-detail {
+  width: 652rpx;
+}
+
+.item-price-top {
+  font-size: 32rpx;
+  color: rgb(35, 31, 32);
+  overflow: hidden;
+}
+.item-title-total{
+  padding-top: 8rpx;
+}
+.item-desc {
+  clear: both;
+  font-size: 24rpx;
+}
+.item-desc .desc{
+  display: inline-block;
+  width:534rpx;
+}
+.toLink{
+  color:rgb(38, 184, 133);
+  text-decoration: underline;
+  display: inline-block;
+}
+.item-price-total{
+  text-decoration: line-through;
+  color:rgb(139, 139 ,139);
+}
+.item-price {
+   
+  width: 100rpx;
+  text-align: right;
+  font-size: 32rpx; 
+  float: right;
+}
+
+/* 注意事项 */
+
+.foot {
+  width: 652rpx;
+}
+
+.care {
+  padding-top: 62rpx;
+  float: left;
+  font-size: 28rpx;
+  width: 100%;
+  padding-bottom: 30rpx;
+  border-bottom: 1rpx solid rgb(187, 187, 187);
+}
+
+.care image {
+  float: right;
+  width: 16rpx;
+  height: 24rpx;
+}
+
+.agree {
+  font-size: 24rpx;
+  margin-top: 30rpx;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.agreement {
+  color: rgb(38, 184, 133);
+  text-decoration: underline;
+}
+
+.button {
+  margin-top: 34rpx;
+  background: rgb(71, 184, 127);
+  color: white;
+  font-size: 32rpx;
+  border-radius: 0;
+  padding: 25rpx 0;
+  text-align: center;
+}

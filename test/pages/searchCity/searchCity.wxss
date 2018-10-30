@@ -1,0 +1,30 @@
+@import '../index/index.wxss';
+.body{
+  bottom:0;
+}
+.searchArea {
+  background: white;
+}
+
+.itemContainer {
+  display: flex;
+  align-items: center;
+  height: 88rpx;
+}
+
+.itemContainer image {
+  width: 20rpx;
+  height: 28rpx;
+  margin-left: 48rpx;
+}
+
+.itemContainer text {
+  margin-left: 20rpx;
+}
+
+.searchDivider {
+  height: 4rpx;
+  width: 654rpx;
+  background-color: rgb(187, 187, 187);
+  margin-left: 48rpx;
+}

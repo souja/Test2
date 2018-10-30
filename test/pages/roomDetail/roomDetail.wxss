@@ -1,0 +1,482 @@
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.address {
+  display: flex;
+  align-items: left;
+  margin-top: 30rpx;
+  width: 100%;
+}
+
+.logo image {
+  margin-left: 48rpx;
+  width: 90rpx;
+  float: left;
+  height: 90rpx;
+}
+
+.address_info {
+  float: left;
+  margin-left: 40rpx;
+}
+
+.address_info text {
+  display: block;
+  font-size: 28rpx;
+}
+
+.address_info .ad {
+  font-size: 20rpx;
+  margin-top: 12rpx;
+  color: rgb(60, 61, 60);
+}
+
+.hotel-pics {
+  width: 750rpx;
+  height: 480rpx;
+  margin-top: 30rpx;
+}
+
+.hotel-pics swiper-item {
+  position: relative;
+}
+
+.pic-info {
+  position: absolute;
+  width: 140rpx;
+  height: 24rpx;
+  font-size: 24rpx;
+  color: rgb(255, 255, 255);
+  left: 48rpx;
+  bottom: 48rpx;
+}
+
+.hotel-info {
+  height: 80rpx;
+  background: rgb(245, 245, 245);
+}
+
+.hotel-info .hotel-num {
+  width: 140rpx;
+  float: left;
+  height: 80rpx;
+  display: flex;
+  font-size: 28rpx;
+  align-items: center;
+  justify-content: center;
+  color: rgb(35, 31, 32);
+}
+
+.itemName {
+  display: flex;
+  font-size: 28rpx;
+  align-items: center;
+  justify-content: center;
+  color: rgb(35, 31, 32);
+  width: 140rpx;
+  height: 80rpx;
+  text-align: center;
+}
+
+.active {
+  background: rgb(255, 229, 41);
+}
+
+.hotel-info .hi {
+  width: 592rpx;
+  float: left;
+  overflow: hidden;
+}
+
+.hotel-info .comment {
+  float: left;
+  width: 158rpx;
+  height: 80rpx;
+  display: flex;
+  font-size: 28rpx;
+  align-items: center;
+  justify-content: left;
+}
+
+.hotel-info .comment .litle-line {
+  height: 28rpx;
+  border-right: 2rpx solid rgb(187, 187, 187);
+}
+
+.hotel-info .comment .co-txt {
+  width: 158rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80rpx;
+}
+
+.hotel-detail {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  height: 224rpx;
+  border-bottom: 1rpx solid rgb(228, 228, 228);
+}
+
+.hotel-detail .header image {
+  width: 96rpx;
+  height: 96rpx;
+  margin-left: 48rpx;
+}
+
+.hotel-detail .furniture {
+  width: 270rpx;
+  margin-left: 40rpx;
+  height: 144rpx;
+}
+
+.hotel-detail .furniture .fu-item {
+  width: 120rpx;
+  float: left;
+  text-align: left;
+  font-size: 24rpx;
+  margin-top: 20rpx;
+}
+
+.price {
+  font-size: 24rpx;
+  height: 124rpx;
+  width: 232rpx;
+  margin-left: 35rpx;
+}
+
+.d-price {
+  width: 232rpx;
+  padding-left: 22rpx;
+}
+
+.day-price {
+  font-size: 48rpx;
+}
+
+.coupond {
+  font-size: 20rpx;
+  color: rgb(209, 68, 40);
+}
+
+.month-price {
+  font-size: 24rpx;
+}
+
+/* 公寓介绍 */
+
+.hotel-desc-title {
+  margin-top: 50rpx;
+  margin-left: 48rpx;
+  font-size: 32rpx;
+}
+
+.hotel-desc-address {
+  font-size: 28rpx;
+  margin-left: 48rpx;
+  margin-top: 30rpx;
+  margin-right: 48rpx;
+}
+
+.hotel-desc button {
+  margin-top: 4rpx;
+  border-radius: 0rpx;
+  color: white;
+  font-size: 32rpx;
+  background: rgb(209, 68, 40);
+}
+
+
+.equipment-det-item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  float: left;
+  min-width: 110rpx;
+  margin-left: 15rpx;
+  font-size: 20rpx;
+  text-align: center;
+  margin-top: 40rpx;
+}
+
+.item-container {
+  margin-top: 48rpx;
+}
+
+.item-container .item {
+  /* margin-left: 48rpx; */
+  border-top: 1rpx solid rgb(228, 228, 228);
+  
+  padding-top: 40rpx;
+}
+
+.item-title {
+  font-size: 32rpx;
+}
+
+.marLeft{
+  margin-left: 48rpx;
+}
+
+.equipment {
+  overflow: hidden;
+  padding-bottom: 30rpx;
+}
+
+.equipment-det-item text{
+  margin-top: 10rpx;
+}
+
+.equipment-det-item image {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.equipment-det-item .more {
+  width: 48rpx;
+  margin: 0 auto;
+  letter-spacing: 6rpx;
+  line-height: 32rpx;
+  height: 48rpx;
+  background: rgb(245, 245, 245);
+}
+
+/* 周边设施 */
+
+.map {
+  width: 650rpx;
+  margin-top: 54rpx;
+  margin-left: 48rpx;
+}
+
+.map map {
+  width: 100%;
+  height: 280rpx;
+}
+
+.subway {
+  margin-top: 40rpx;
+  margin-bottom: 20rpx;
+}
+
+.metro {
+  margin-left: 48rpx;
+  overflow: hidden;
+}
+
+.metro image:first-child {
+  margin-left: 0rpx;
+}
+
+.metro image {
+  float: left;
+  width: 120rpx;
+  height: 60rpx;
+  margin-left: 20rpx;
+}
+
+.otherway {
+  margin-left: 48rpx;
+  overflow: hidden;
+  margin-top: 40rpx;
+  margin-bottom: 28rpx;
+}
+
+.otherway .oth {
+  margin-top: 28rpx;
+  font-size: 28rpx;
+}
+
+.otherway .oth label:first-child {
+  margin-left: 0rpx;
+}
+
+.otherway .oth label {
+  display: inline-block;
+  margin-left: 20rpx;
+}
+
+/* landlady */
+
+.landlady {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.landlady-header image {
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.landlady-info {
+  background: rgb(245, 245, 245);
+  font-size: 24rpx;
+  height: 120rpx;
+  width: 534rpx;
+}
+
+.landlady-info view {
+  padding-left: 30rpx;
+  margin: 15rpx 0;
+}
+
+.vip {
+  margin-top: 60rpx;
+  margin-bottom: 32rpx;
+}
+
+.vip-item:nth-child(1), .vip-item:nth-child(5), .vip-item:nth-child(9),
+.vip-item:nth-child(13) {
+  margin-left: 0rpx;
+}
+
+.vip-item {
+  float: left;
+  text-align: center;
+  font-size: 24rpx;
+  width: 145rpx;
+  margin-top: 14rpx;
+  height: 150rpx;
+  margin-left: 26rpx;
+}
+
+.vip-item view {
+  margin-top: 20rpx;
+}
+
+.vip-item image {
+  width: 76rpx;
+  height: 76rpx;
+}
+
+/* 注意事项 */
+
+.care {
+  width: 654rpx;
+  padding-top: 62rpx;
+  float: left;
+  font-size: 28rpx;
+  padding-bottom: 30rpx;
+  border-bottom: 5rpx solid rgb(35, 31, 32);
+}
+
+.care image {
+  float: right;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+/* 底部 */
+
+.footer {
+  color: white;
+  font-size: 24rpx;
+  margin-top: 60rpx;
+  background: rgb(35, 31, 32);
+  padding-top: 34rpx;
+  padding-bottom: 50rpx;
+}
+
+.footer-info {
+  width: 622rpx;
+  margin: 0 auto;
+}
+
+.footer-info view {
+  margin-top: 10rpx;
+}
+
+.hotel-comment {
+  padding: 48rpx;
+  margin-top: 48rpx;
+}
+
+.hotel-comment .txt {
+  font-size: 32rpx;
+}
+
+.hotel-comment .txt .origin {
+  font-size: 24rpx;
+  float: right;
+}
+
+.hotel-comment .item {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  margin-top: 48rpx;
+  padding-bottom: 40rpx;
+  border-bottom: 1rpx solid rgb(228, 228, 228);
+}
+
+.hotel-comment .user-header image {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.user-info {
+  width: 100%;
+  margin-left: 40rpx;
+}
+
+.user-info .userName {
+  font-size: 28rpx;
+}
+
+.user-info .commentTime {
+  font-size: 20rpx;
+  float: right;
+  display: block;
+  line-height: 28rpx;
+}
+
+.star {
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  height: 30rpx;
+}
+
+.star image {
+  width: 25rpx !important;
+  height: 25rpx !important;
+  position: absolute;
+  top: 0rpx;
+  left: 0;
+}
+
+.user-info .comment-info {
+  font-size: 28rpx;
+}
+
+.noRoomTip {
+  line-height: 80rpx;
+  margin-left: 30rpx;
+}
+
+.lineName {
+  background: #195490;
+  font-size: 24rpx;
+  color: white;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  float: left;
+  padding-left: 12rpx;
+  padding-right: 12rpx;
+}
+
+.line-item {
+  display: block;
+}

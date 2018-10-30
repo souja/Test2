@@ -1,0 +1,24 @@
+<view class="order-title">押金及退款政策</view>
+<view class="explain-detail-wrap">
+	<view class="title">押金政策</view>
+	<view class="content-item">
+		<view class="content-item-pre">•</view>
+		<view class="content-detail">居住 1 天- 1 个月，在线预订，押金500，搬出后使用微信支付返回至用户账户；</view>
+	</view>
+	<view class="content-item">
+		<view class="content-item-pre">•</view>
+		<view class="content-detail">居住 1 个月 - 6 个月，在线预订，押金1000，搬出后使用微信支付返回至用户账户；</view>
+	</view>
+	<view class="content-item">
+		<view class="content-item-pre">•</view>
+		<view class="content-detail">居住 6 个月及以上 ，建议与Paires客服联系，线下预定，并签署租赁合同，押金为 1个月房屋租金，搬出后使用原付款方式返回至用户账户。</view>
+	</view>
+
+	<order-cancel-explain></order-cancel-explain>
+
+	<view class="title">修改入住需求：</view>
+	<view class="content-item">
+		<view class="content-item-pre">•</view>
+		<view class="content-detail">客人如有修改入住时间的需求，请联系「Paires小助手」 (微信ID：paireshelper)，如有适合房屋，Paires会为您安排新的房间；如在新选择日期内无适合房屋，是否享受全额退款，取决于是否满足”取消入住政策”中的时间。 </view>
+	</view>
+</view>

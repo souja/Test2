@@ -1,0 +1,48 @@
+@import '../template/template.wxss';
+
+.content {
+  margin-top: 30rpx;
+}
+
+.text1{
+  white-space: nowrap;
+  margin-left: 40rpx;
+}
+.verLine{
+  margin-left: 28rpx;
+  width: 4rpx;
+  height: 42rpx;
+  background: #BBBBB9
+}
+
+.bg2{
+  margin-top: 20rpx;
+}
+.bg2 input{
+  margin-left: 40rpx;
+}
+.loginContent{
+  margin-top: 60rpx;
+}
+.login{
+  text-decoration: underline;
+}
+
+.bg1 {
+  margin-top: 44rpx;
+}
+
+.bg1 input {
+  margin-left: 28rpx;
+}
+
+
+.inputBg input {
+  height: 100%;
+}
+
+.arrow{
+  margin-left: 12rpx;
+  width: 12rpx;
+  height: 8rpx;
+}

@@ -1,0 +1,18 @@
+<view class='content'>
+
+  <text class='font40 blackText'>验证码已发送</text>
+
+  <view class='inputBg bg0'>  
+    <text class='font28 grayText text1'>+86</text>
+    <input disabled='{{inputDisable}}' placeholder='{{phoneInsed}}' class='blackText font28 phone' placeholder-class='grayText font28'></input>
+    <text class='font28 blackText modify'>修改</text>
+  </view>
+
+  <view class='inputBg bg1'>
+    <input password='true' class='blackText font28' placeholder='6位短信验证码' placeholder-class='grayText font28' maxlength='20'></input>
+    <button class='font28 blackText mbtn' disabled='{{disabled}}' bindtap='getVerificationCode'>{{time}}</button>
+  </view>
+  
+  <button class='yellowBg blackText font32 btn' hover-class='grayBg' bindtap='goVerify'>下一步</button>
+
+</view>

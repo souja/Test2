@@ -1,0 +1,333 @@
+<view class='main'>
+  <view class='address'>
+    <view class='logo fl'>
+      <image src='{{brandSrc}}'></image>
+    </view>
+    <view class='clearfix'></view>
+    <view class='address_info flr'>
+      <text class='title'>{{roomDetail.fullTitle}}</text>
+      <text class='ad'>{{roomDetail.city.text}} {{roomDetail.businessDistrict.text}}</text>
+    </view>
+  </view>
+  <view class='hotel-pics'>
+    <swiper style='height:480rpx;'>
+      <block>
+        <view class='itemPic' wx:for="{{roomDetail.pictureList}}" wx:key="{{index}}" wx:for-item="itemPic">
+
+          <swiper-item>
+            <image bindtap='previewImg' data-src='{{itemPic.pictureContent}}' src='{{itemPic.pictureContent}}' model="aspectFit" style="width: {{imageWidth}}px;" bindload="imageLoad"></image>
+            <view class='pic-info'>
+              {{index+1}} /{{imgCount}} {{itemPic.pictureName}}
+            </view>
+          </swiper-item>
+
+        </view>
+      </block>
+    </swiper>
+  </view>
+
+  <view class='hotel-info'>
+    <view class='hi'>
+      <block wx:if='{{roomDetail.roomList!=null&&roomDetail.roomList.length>0}}'>
+        <view class='hotel-num' wx:for="{{roomDetail.roomList}}" wx:key="{{index}}" wx:for-item='room'>
+          <view class='itemName {{index==activeIndex?"active":""}}' bindtap='changeRoom' data-id='{{index}}'>
+            {{room.roomName}}
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+        <text class='gray28 noRoomTip' bindtap='showMain'>暂无房间</text>
+      </block>
+    </view>
+
+    <view class='comment'>
+      <view class='litle-line' wx:if="{{!commentAction}}"></view>
+      <view class='co-txt {{commentAction?"active":""}}' bindtap='comment'>评论</view>
+    </view>
+  </view>
+
+
+  <view class='hotel-infos' wx:if="{{!commentAction}}">
+
+    <block wx:if='{{roomDetail.roomList!=null&&roomDetail.roomList.length>0}}'>
+      <view class='hotel-detail'>
+        <view class='header'>
+          <image src='{{info[activeIndex].logo}}'></image>
+        </view>
+        <view class='furniture'>
+          <view class='fu-item'>
+            {{roomDetail.roomList[activeIndex].roomDescription}}
+          </view>
+        </view>
+        <view class='price'>
+          <view class='d-price'>
+            <label class='day-price'>¥{{roomDetail.roomList[activeIndex].roomPricePerDay}}</label> / 天
+          </view>
+          <view class='m-pirce'>
+            <label class='coupond'>折后</label>
+            <label class='month-price'> ¥{{roomDetail.roomList[activeIndex].roomPricePerMonth}} / 月</label>
+          </view>
+        </view>
+      </view>
+    </block>
+
+
+
+    <!-- 公寓介绍 -->
+    <view class='hotel-desc'>
+      <view class='hotel-desc-title'>公寓介绍</view>
+      <view class='hotel-desc-address'>{{roomDetail.description}}</view>
+      <view>
+        <button bindtap='order' style='margin-top:15rpx;height:100rpx;line-height:100rpx;' disabled='{{roomDetail.roomList==null||roomDetail.roomList.length==0}}'>立即预订
+          <label>{{roomDetail.roomList[activeIndex].roomName}}</label>
+        </button>
+      </view>
+    </view>
+
+    <view class='item-container'>
+      <view class='item equipment'>
+        <view class='font32 marLeft'>公寓设施</view>
+        <!--有设施-->
+        <block wx:if='{{roomDetail.facilityList!=null&&roomDetail.facilityList.length>0}}'>
+
+          <!--设施>6件-->
+          <block wx:if='{{roomDetail.facilityList.length>6}}'>
+
+            <!--默认展示5件+所有-->
+            <block wx:if='{{!showAllEquip}}'>
+
+              <block wx:for='{{roomDetail.facilityList}}' wx:key='{{index}}'>
+
+                <block wx:if='{{index<5}}'>
+                  <!--{{index==0?"equipment-det-item1":"-->
+                  <!--"}}-->
+                  <view class='equipment-det-item'>
+                    <image src='/res/imgs/bed.png'></image>
+                    <text>{{item.text}}</text>
+                  </view>
+                </block>
+              </block>
+
+
+              <view class='equipment-det-item' bindtap='showAllEquipment'>
+                <view class='more'>...</view>
+                <text>所有</text>
+              </view>
+            </block>
+
+            <!--展示所有的-->
+            <block wx:else>
+              <block wx:for='{{equipLines}}' wx:for-index="line">
+                <!--x行-->
+                <block wx:for='{{roomDetail.facilityList}}' wx:for-index="col">
+                  <!--每行<=6个-->
+                  <block wx:if='{{col>=(line*6)&&col<(line+1)*6}}'>
+                    <view class='line-item'>
+                      <!--{{col==line*6?"equipment-det-item1":"-->
+                      <!--"}}-->
+                      <view class='equipment-det-item'>
+                        <image src='/res/imgs/bed.png'></image>
+                        <text>{{item.text}}</text>
+                      </view>
+                    </view>
+                  </block>
+                </block>
+
+              </block>
+
+            </block>
+
+          </block>
+          <!--设施<=6件-->
+          <block wx:else>
+            <block wx:for='{{roomDetail.facilityList}}'>
+              <!--{{index==0?"equipment-det-item1":"-->
+              <!--"}}-->
+              <view class='equipment-det-item'>
+                <image src='/res/imgs/bed.png'></image>
+                <text>{{item.text}}</text>
+              </view>
+            </block>
+          </block>
+        </block>
+
+
+        <!--无设备-->
+        <block wx:else>
+          <text class='gray28'>暂无</text>
+        </block>
+      </view>
+
+      <view class='item'>
+        <view class='font32 marLeft'>
+          周边信息
+        </view>
+        <view class='map'>
+          <map longitude="{{longitude}}" latitude="{{latitude}}" scale="14">
+          </map>
+        </view>
+        <view>
+          <view class='font32 marLeft subway'>{{roomDetail.nearbySubwayStation}}</view>
+          <block wx:if='{{roomDetail.nearbySubwayLineList!=null&&roomDetail.nearbySubwayLineList.length>0}}'>
+
+            <view class='metro'>
+              <block wx:for='{{roomDetail.nearbySubwayLineList}}'>
+                <text class='lineName'>{{item.text}}</text>
+              </block>
+            </view>
+          </block>
+
+          <view class='clearfix'></view>
+          <view class='otherway'>
+            <view class='font32'>
+              其它出行方式
+            </view>
+            <view class='oth'>
+              <label>滴滴打车</label>
+              <label>摩拜单车</label>
+              <label>ofo共享单车</label>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class='clearfix'></view>
+
+      <view class='item'>
+
+        <block wx:if='{{coHost!=null}}'>
+          <view class='landlady marLeft'>
+            <view class='landlady-header'>
+              <image src='{{coHost.avatar}}'></image>
+            </view>
+            <view class='landlady-info'>
+              <view>公寓联合房东</view>
+              <view>{{coHost.name}} {{coHost.title}} {{coHost.pairesWords}}</view>
+            </view>
+          </view>
+        </block>
+
+        <view class='font32 marLeft vip'> 会员专享 </view>
+
+        <view class='vip-info marLeft'>
+          <view class='vip-item'>
+            <image src='/res/imgs/only-room.png'></image>
+            <view>私人房间</view>
+          </view>
+          <view class='vip-item'>
+            <image src='/res/imgs/only-box.png'></image>
+            <view>Paires Box</view>
+          </view>
+          <view class='vip-item'>
+            <image src='/res/imgs/only-jiaju.png'></image>
+            <view>家具及软装</view>
+          </view>
+          <view class='vip-item'>
+            <image src='/res/imgs/only-wifi.png'></image>
+            <view>高速WiFi</view>
+          </view>
+          <view class='vip-item'>
+            <image src='/res/imgs/only-kefu.png'></image>
+            <view>24/7客服</view>
+          </view>
+          <view class='vip-item'>
+            <image src='/res/imgs/only-washroom.png'></image>
+            <view>卫生用品全包</view>
+          </view>
+          <view class='vip-item'>
+            <image src='/res/imgs/only-lock.png'></image>
+            <view>智能门锁</view>
+          </view>
+          <view class='vip-item'>
+            <image src='/res/imgs/only-discount.png'></image>
+            <view>中长租折扣</view>
+          </view>
+          <view class='vip-item'>
+            <image src='/res/imgs/only-xyj.png'></image>
+            <view>免费洗衣机</view>
+          </view>
+          <view class='vip-item'>
+            <image src='/res/imgs/only-office.png'></image>
+            <view>免费办公</view>
+          </view>
+          <view class='vip-item'>
+            <image src='/res/imgs/only-owner.png'></image>
+            <view>联合房东</view>
+          </view>
+          <view class='vip-item'>
+            <image src='/res/imgs/only-act.png'></image>
+            <view>社区活动</view>
+          </view>
+          <view class='vip-item'>
+            <image src='/res/imgs/only-cityact.png'></image>
+            <view>城市活动</view>
+          </view>
+          <view class='vip-item'>
+            <image src='/res/imgs/only-dingzhi.png'></image>
+            <view>聚会定制</view>
+          </view>
+
+        </view>
+
+        <view class='marLeft clearfix care'>
+          注意事项
+          <image src='/res/imgs/right.png'></image>
+        </view>
+
+        <navigator url="/pages/order/order-explain/index">
+          <view class='marLeft clearfix care'>
+            押金及退款政策
+            <image src='/res/imgs/right.png'></image>
+          </view>
+        </navigator>
+      </view>
+    </view>
+
+  </view>
+
+  <view class='hotel-comment' hidden='{{!commentAction}}'>
+    <view class='txt'>
+      <label>评论</label>
+      <label class='origin'>数据来自Airbnb</label>
+    </view>
+
+    <block wx:if='{{coHost!=null&&coHost.reviewList!=null&&coHost.reviewList.length>0}}'>
+      <view class='item' wx:for="{{coHost.reviewList}}" wx:key="{{index}}" wx:for-item="comment">
+        <view class='user-header'>
+          <image src='{{comment.reviewerAvatar}}'></image>
+        </view>
+        <view class='user-info'>
+          <view class='top'>
+            <label class='comment'>{{items.reviewerName}}</label>
+            <label class='commentTime' hidden='1'>{{items.commentTime}}</label>
+          </view>
+          <!-- 评分 -->
+          <view class='star' hidden='1'>
+            <block wx:for="{{stars}}" wx:key="{{index}}">
+              <image style="left: {{item*35}}rpx;" src="{{items.score > item ?selectedSrc : normalSrc}}">
+                <view class="itemStars" data-key="{{item+1}}"></view>
+              </image>
+            </block>
+          </view>
+          <view class='comment-info'>
+            {{comment.reviewContent}}
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <text class='font24 grayText' style='margin-top:15rpx;'>暂无评论</text>
+    </block>
+  </view>
+  <view class='clearfix'></view>
+
+
+
+  <view class='footer'>
+    <view class='footer-info'>
+      <view>© 友舍 (北京) 网络科技有限公司</view>
+      <view>京公网安备110000020xxxxx号 京ICP备1204xxxx</view>
+      <view>号-5　京ICP证150xxx号 京网文【201x】241x-4xx</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,219 @@
+@import '../template/template.wxss';
+
+.body {
+  position: absolute;
+  top: 120rpx;
+  bottom: 90rpx;
+}
+
+.search-area {
+  background: #251f1f;
+  padding: 24rpx 48rpx;
+}
+
+.input-container {
+  background-color: #fffffc;
+  border: 4rpx solid #e6e522;
+  border-radius: 4rpx;
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+}
+
+.input-container icon {
+  margin-left: 28rpx;
+}
+
+.input-container input {
+  width: 100%;
+  height: 100%;
+  margin-left: 28rpx;
+  color: #251f1f;
+  font-size: 28rpx;
+}
+
+.main {
+  padding-left: 48rpx;
+}
+
+.title-city, .title-popular {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title-city {
+  margin-top: 40rpx;
+}
+
+.title-popular {
+  margin-top: 60rpx;
+}
+
+.city-container {
+  position: relative;
+  width: 100%;
+  float: left;
+  background: purple;
+  display: flex;
+  flex-direction: row;
+}
+
+.divider {
+  display: inline-block;
+  width: 30rpx;
+  height: 200rpx;
+  background: blue;
+}
+
+.city-scroll {
+  margin-left: 48rpx;
+  margin-top: 40rpx;
+  height: 200rpx;
+  white-space: nowrap;
+  display: flex;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.city-item {
+  width: 160rpx;
+  height: 200rpx;
+  margin-right: 30rpx;
+  display: inline-block;
+}
+
+.city-item image {
+  position: absolute;
+  top: 0;
+  width: 160rpx;
+  height: 200rpx;
+  z-index: 1;
+}
+
+.text-area {
+  width: 160rpx;
+  position: absolute;
+  z-index: 999;
+  top: 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text-area text {
+  color: white;
+}
+
+.apartment-scroll {
+  margin-top: 30rpx;
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
+}
+
+.city-lit {
+  margin-left: 48rpx;
+  margin-top: 40rpx;
+}
+
+.apart-child-scroll {
+  margin-left: 48rpx;
+  margin-top: 30rpx;
+  height: 416rpx;
+  white-space: nowrap;
+}
+
+.apart-child-item {
+  width: 550rpx;
+  height: 416rpx;
+  display: inline-block;
+}
+
+.apart-child-item image {
+  width: 520rpx;
+  height: 288rpx;
+}
+
+.apart-text-container {
+  width: 410rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.ap-price {
+  font-size: 20rpx;
+}
+
+.ap-divider {
+  display: inline-block;
+  width: 4rpx;
+  height: 16rpx;
+  margin-left: 20rpx;
+  margin: 16rpx;
+  background-color: #bbbbb9;
+}
+
+.ap-text-bot {
+  display: flex;
+  align-items: center;
+}
+
+.ap-bot-container {
+  display: flex;
+  align-items: center;
+}
+
+.yslogo {
+  margin-left: 30rpx;
+}
+
+.yslogo text {
+  line-height: 80rpx;
+}
+
+.list-end {
+  display: inline-block;
+  width: 48rpx;
+  height: 1rpx;
+}
+
+.get-user-info {
+  text-align: center;
+  z-index: 99999;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  background: black;
+  filter: opacity(0.5);
+}
+
+.g-u-main {
+  margin-top: 40%;
+  width: 512rpx;
+  height: 100rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border-radius: 8rpx;
+}
+
+.nodata {
+  margin-top: 20rpx;
+}
+
+.m-loading {
+  margin-top: 30rpx;
+}
+
+.logoSize {
+  width: 80rpx;
+  height: 80rpx;
+}

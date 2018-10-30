@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "order-cancel-explain": "./order-cancel-explain/index"
+  }
+}

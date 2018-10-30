@@ -1,0 +1,33 @@
+@import "common.wxss";
+.order-history {
+  padding-top: 100rpx;
+}
+
+
+/*未付款订单*/
+.unpaid-order-notice {
+  display: flex;
+  align-items: center;
+  height: 120rpx;
+  padding: 0 48rpx;
+  margin-top: 100rpx;
+  background: rgb(71,184,127);
+  font-size: 32rpx;
+  color: #fff;
+  letter-spacing: 1rpx;
+}
+.unpaid-status {
+  width: 20rpx;
+  height: 20rpx;
+  margin-right: 30rpx;
+  background: rgb(209,68,40);
+  border-radius: 100%;
+  border: 2rpx solid #fff;
+}
+
+.unpaid-img {
+  position: absolute;
+  right: 46rpx;
+  width: 40rpx;
+  height: 40rpx;
+}

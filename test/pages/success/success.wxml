@@ -1,0 +1,15 @@
+<!--logs.wxml-->
+<view class="main">
+  <view class='title'>
+    <view class='title_fill'></view>
+    <text class='pay_title'>恭喜你，预定成功！</text>
+    <text class='pay_price'>请添加客服微信获取入住指南，搬离后的押金退款也将通过客服进行。</text>
+    <view class='payee_back'>
+      <image class='qr' mode="{{array.mode}}" src="{{src}}"></image>
+    </view>
+    <text class='wx_number'>请长按二维码添 24/7「Paires 客服」微信号：Paires-service</text>
+  </view>
+  <view class='footer'>
+    <button class='journey' bindtap='goOrders'>查看我的旅程订单</button>
+  </view>
+</view>

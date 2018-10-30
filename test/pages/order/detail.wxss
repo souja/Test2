@@ -1,0 +1,213 @@
+@import "./order-list/index.wxss";
+.order-title {
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: rgb(35,31,32);
+  border-bottom: 4rpx solid rgb(228,228,228);
+}
+.order-id {
+  font-weight: normal;
+}
+.detail-wrap {
+  padding: 0 46rpx 70rpx 50rpx;
+}
+.order-item {
+  margin-bottom: 40rpx;
+}
+
+.info-title {
+  padding-bottom: 30rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: rgb(60,61,60);
+}
+.info-wrap {
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+  color: rgb(60,61,60);
+}
+.info-content {
+  max-width: 60%;
+}
+.border {
+  margin: 30rpx 0;
+  height: 4rpx;
+  width: 100%;
+  background: rgb(187,187,187);
+}
+.info-important {
+  font-weight: bold;
+}
+.info-delete {
+  text-decoration: line-through;
+  color: rgb (139,139,139);
+}
+.info-title-price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 40rpx;
+  padding-bottom: 4rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: rgb(60,61,60);
+}
+.label-bold {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.info-content-bold {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.juccce {
+  display: inline;
+  color: rgb(38,184,133);
+  text-decoration: underline;
+}
+.total-number {
+ font-size: 48rpx;
+  font-weight: bold;
+  color: rgb(35,31,32);
+}
+.nav-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /*padding-top: 40rpx;*/
+  /*padding-bottom: 4rpx;*/
+  padding: 30rpx 0;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: rgb(60,61,60);
+  border-top: 4rpx solid rgb(187,187,187);
+  border-bottom: 4rpx solid rgb(187,187,187);
+}
+.nav-info-first {
+  margin-top: 30rpx;
+  border-bottom: none;
+}
+.nav-info image {
+  margin-right: 14rpx;
+  width: 8rpx;
+  height: 16rpx;
+}
+.bottom-wrap {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30rpx;
+}
+.bottom-wrap .bottom-btn {
+  box-sizing: border-box;
+  height: 72rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: rgb(35,31,32);
+  border: 4rpx solid rgb(35,31,32);
+  width: 312rpx;
+  border-radius: 40rpx;
+}
+.bottom-wrap .bottom-btn-green {
+  background: rgb(71,184,127);
+  border: 4rpx solid rgb(71,184,127);
+  color: #fff;
+}
+
+/*弹窗*/
+.modal-fixed {
+  position: fixed;
+  top:0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: rgba(35,31,32, 0.3);
+  z-index: 999;
+}
+.modal-wrap {
+  padding: 168rpx 48rpx 0 48rpx;
+}
+.modal-wrap-inner {
+  background: #fff;
+  border-radius: 4rpx;
+}
+.dialog-cancel {
+  padding-top: 36rpx;
+}
+.modal-close {
+  display: block;
+  margin-left: 36rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+.order-explain {
+  padding: 0 40rpx;
+}
+
+.real-cancel-wrap {
+  padding-top: 40rpx;
+  padding-bottom: 66rpx;
+  width: 100%;
+  text-align: center;
+}
+.real-cancel-order {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 312rpx;
+  height: 72rpx;
+  color: #fff;
+  font-size: 28rpx;
+  border-radius: 36rpx;
+  background: rgb(71,184,127);
+}
+
+/*取消成功*/
+.dialog-cancel-success {
+  text-align: center;
+}
+.cancel-success-title {
+  padding-top: 100rpx;
+  padding-bottom: 50rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: rgb(35, 31, 32);
+}
+.cancel-success-notice {
+  margin-bottom: 32rpx;
+  font-size: 28rpx;
+  line-height: 48rpx;
+  color: rgb(35, 31, 32);
+}
+.qr-code {
+  width: 280rpx;
+  height: 280rpx;
+}
+.cancel-success-text {
+  margin-top: 20rpx;
+  font-size: 24rpx;
+  line-height: 48rpx;
+  color: rgb(60,61,60);
+}
+.close-success-btn {
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 312rpx;
+  height: 72rpx;
+  margin-top: 40rpx;
+  margin-bottom: 74rpx;
+  border-radius: 36rpx;
+  font-size: 24rpx;
+  color: rgb(71,184,127);
+  border: 6rpx solid rgb(71,184,127);
+}

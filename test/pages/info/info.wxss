@@ -1,0 +1,138 @@
+/**index.wxss**/
+.main{
+  height: 100vh;
+  width: 100%vw;
+}
+/*页面头部组件*/
+.head{
+  width: 100%;
+  height: 7.5%;
+  border-bottom:1px solid #404040;
+}
+.title{
+  width: 60%;
+  height: 100%;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 7.5vh;
+  font-size: 16px
+}
+.title_font{
+  font-weight: 600;
+}
+/*页面中部组件*/
+.body{
+  width: 100%;
+  height: 84%; 
+  display:flex;
+}
+.back{
+  width: 87%;
+  height: 93%;
+  margin: 0 auto;
+  align-self: center
+}
+.confirm_info{
+  font-size: 16px;
+  font-weight: 600;
+  display: inline-block;
+  width: 100%;
+  height: 5%
+}
+.remind{
+  font-size: 11px;
+  display: inline-block;
+  width: 100%;
+  height: 6%;
+  color: #404040;
+}
+.btn_back{
+  width: 100%;
+  height:30%; 
+  margin-bottom: 20rpx;
+}
+.btn_view{
+  width: 50%;
+  height: 50%;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+.btn_view_line{
+  width: 100%;
+  height: 50%;
+  display: inline-block;
+}
+.star{
+  color: red;
+  font-weight: 600;
+  display: inline-block;
+  height: 30%;  
+  padding-top: 5rpx;
+}
+.content_{
+  font-size: 16px;
+  font-weight: 600;
+  display: inline-block;
+  height: 40%;
+}
+.input_{
+  display: inline-block;
+  padding-left: 10px;
+  width: 90%;
+  height: 50%;
+  border: 1px solid #404040;
+  border-radius: 5px;
+  font-size: 12px;
+}
+.radio {
+    display: inline-block;
+    width: 50%;
+    height: 40%;
+    transform:scale(0.7);
+    margin-left: -50rpx;
+}
+.phone_input_back{
+  display: flex;
+  padding-left: 10px;
+  width: 90%;
+  height: 50%;
+  border: 1px solid #404040;
+  border-radius: 5px;
+  font-size: 12px;
+  
+}
+.picker_ass{
+  width: 30%;
+  height: 100%;
+  display: inline-block;
+  line-height: 5.9vh;
+}
+.picker{
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  text-align: center
+}
+.phone_input{
+  align-self: center;
+  width: 50%;
+  float: right;
+  height: 50%;
+  display: inline-block;
+  border-left: 1px solid #404040;
+  padding-left: 10px;
+}
+/*页面底部组件*/
+.footer{
+  width: 100%;
+  height: 8.5%;
+}
+.pay_btn{
+  width: 100%;
+  height: 100%;
+  background: #59B272;
+  border-radius: 3px;
+  text-align: center;
+  line-height: 8.5vh;
+  color: #fcfcfc;
+}

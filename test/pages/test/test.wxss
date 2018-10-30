@@ -1,0 +1,136 @@
+.fl{
+  float: left;
+}
+.fr{
+  float:right;
+}
+.clearfix{
+  clear: both;
+}
+.cancel{
+  margin-top:20rpx;
+  padding-left: 48rpx;
+}
+.top{
+  margin-top:20rpx;
+}
+.top .txt{
+  font-size: 32rpx;
+  margin-bottom: 20rpx;
+}
+.top .in-date{
+  width:260rpx;
+  font-size: 48rpx;
+  margin-left: 48rpx;
+}
+.top .out-date{
+  font-size: 48rpx;
+  margin-left: 84rpx;
+}
+.date-show {
+  position: relative;
+  width: 250rpx;
+  font-family: PingFang-SC-Regular;
+  font-size: 40rpx;
+  color: #282828;
+  text-align: center;
+  margin: 59rpx auto 10rpx;
+}
+
+ 
+ 
+ .top{
+   height:68rpx;
+   font-size:52rpx;
+ }
+
+ .header{
+   padding-left:20rpx;
+   border-bottom: 1rpx solid rgb(228, 228, 228);
+ }
+
+.header>view {
+  border:1rpx solid white;
+  display: inline-block;
+  width: 100rpx;
+  color: #333;
+  font-size: 30rpx;
+  text-align: center;
+  padding: 39rpx 0;
+}
+
+.weekMark {
+  position: relative;
+}
+
+.weekMark view {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.date-box {
+  font-size: 0;
+  padding: 10rpx 0 10rpx 20rpx;
+}
+
+.date-box>view {
+  position: relative;
+  display: inline-block;
+  color: #020202;
+  font-size: 40rpx;
+  text-align: center;
+  vertical-align: middle;
+ 
+}
+
+.date-head {
+  border:1rpx solid white;
+  height: 100rpx;
+  line-height: 60rpx;
+  font-size: 26rpx;
+}
+
+.nowDay .date-head {
+  width: 100rpx;
+  height:100rpx;
+  text-align: center;
+  color: #fff;
+  background-color: rgb(255, 229, 41);
+  margin: 0 auto;
+}
+.chooseDay {
+   
+  background-color: rgb(255, 246 ,178)!important;
+ 
+}
+ .date-head view{
+   width:100rpx;
+   height:100rpx;
+   line-height: 100rpx;
+   color:rgb(60, 61, 60);
+   font-size: 32rpx;
+ }
+
+ 
+
+.one {
+  position: absolute;
+  bottom: 0;
+  right: 5rpx;
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  background-color: red;
+}
+
+.two {
+  position: absolute;
+  bottom: 30rpx;
+  right: 5rpx;
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  background-color: blue;
+}

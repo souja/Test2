@@ -1,0 +1,28 @@
+@import '../template/template.wxss';
+
+@import '../register/register.wxss';
+
+.content {
+  margin-top: 30rpx;
+  padding-left: 56rpx;
+}
+
+.bg1 input{
+  width: 360rpx;
+}
+.bg1 text{
+  width: 200rpx;
+  height: 100%;
+  text-align: right;
+  line-height: 100rpx;
+}
+.mbtn{
+  background: transparent;
+}
+.mbtn::after{
+  border: none;
+}
+wx-button[disabled]:not([type]){
+  background-color: transparent;
+  border: none;
+}

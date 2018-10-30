@@ -1,0 +1,36 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/test/test",
+    "pages/notice/notice",
+    "pages/collection/collection",
+    "pages/finishRegister/finishRegister",
+    "pages/bookMain/bookMain",
+    "pages/homeSearchResult/homeSearchResult",
+    "pages/order/order-explain/index",
+    "pages/book/book",
+    "pages/info/info",
+    "pages/pay/pay",
+    "pages/success/success",
+    "pages/roomDetail/roomDetail",
+    "pages/order/index",
+    "pages/login/login",
+    "pages/order/detail",
+    "pages/order/unpaid",
+    "pages/mine/mine",
+    "pages/searchCity/searchCity",
+    "pages/findPwd/findPwd",
+    "pages/register/register",
+    "pages/setNewPwd/setNewPwd",
+    "pages/verifyCodeSent/verifyCodeSent",
+    "pages/besuper/besuper",
+    "pages/beunion/beunion",
+    "pages/template/template"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#251f1f",
+    "navigationBarTitleText": "Paires友舍公寓",
+    "navigationBarTextStyle":"white"
+  }
+}

@@ -1,0 +1,10 @@
+.order-title {
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  padding-left: 40rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: rgb(35,31,32);
+  border-bottom: 4rpx solid rgb(228,228,228);
+}

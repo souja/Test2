@@ -1,0 +1,47 @@
+.content{
+  margin-top: 60rpx;
+}
+input{
+  height: 100%;
+}
+.mbtn{
+  width: 250rpx;
+  background-color: transparent;
+  margin-left: 40rpx;
+  text-align: right;
+}
+.mbtn::after{
+  background-color: transparent;
+  border: none;
+  text-align: right;
+}
+wx-button[disabled]:not([type]){
+  background-color: transparent;
+  border: none;
+  text-align: right;
+}
+.bg0{
+  margin-top: 60rpx;
+}
+.bg1{
+  margin-top: 20rpx;
+}
+.bg1 input{
+  width: 300rpx;
+  padding-left: 40rpx;
+}
+.text1{
+  margin-left: 40rpx;
+  width: 60rpx;
+}
+.phone{
+  margin-left: 10rpx;
+  width: 260rpx;
+}
+.modify{
+width: 200rpx;
+margin-left: 40rpx;
+height: 100%;
+text-align: right;
+line-height: 100rpx;
+}

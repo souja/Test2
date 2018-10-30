@@ -1,0 +1,30 @@
+@import '../register/register.wxss';
+
+.content{
+  margin-top: 60rpx;
+}
+.tip{
+  display: block;
+  margin-top: 12rpx;
+}
+.inputBg2{
+  width:360rpx;
+  padding-left: 40rpx;
+}
+.verifyArea{
+  display: flex;
+  margin-top: 20rpx;
+  flex-direction: row;
+}
+.verifyImg{
+  width: 220rpx;
+  height: 100rpx;
+  margin-left: 20rpx;
+  border: 2rpx solid #bbbbb9;
+}
+.phoneArea{
+  margin-top: 48rpx;
+}
+.phoneArea input{
+  margin-left: 28rpx;
+}

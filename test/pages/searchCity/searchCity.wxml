@@ -1,0 +1,18 @@
+<view class='search-area'>
+  <view class='input-container'>
+    <icon type='search' size='14' color='#251F1F'></icon>
+    <input maxlength='20' placeholder='目的地' bindinput='syncList' placeholder-class='grayText font28' confirm-type='search' bindconfirm='searchCity'></input>
+  </view>
+</view>
+
+<scroll-view class='body searchArea' scroll-y="true">
+  <block wx:if='{{syncCities.length>0}}'>
+    <block wx:for='{{syncCities}}'>
+      <view class='itemContainer' bindtap='goSearch' data-index='{{index}}'>
+        <image src='../../res/imgs/ic_loc.png'></image>
+        <text class='font28 blackText'>{{item.text}}</text>
+      </view>
+      <view class='searchDivider'></view>
+    </block>
+  </block>
+</scroll-view>

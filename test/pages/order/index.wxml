@@ -1,0 +1,23 @@
+<block wx:if='{{currentNav=="normal"}}'>
+  <navigator class="unpaid-order-notice" url="/pages/order/unpaid">
+    <view class="unpaid-status"></view>
+    <view class="unpaid-desc">{{unpayCount}} 个代付款订单</view>
+    <image src="../../res/imgs/order/icon-order-index-unpaid-arrow.png" class="unpaid-img"></image>
+  </navigator>
+</block>
+
+
+<view class="nav">
+  <view class="nav-item nav-first {{ navFirstClass }}" bindtap="onTapShowNav" data-nav="normal">我的旅程订单</view>
+  <view class="nav-item nav-second {{ navSecondClass }}" bindtap="onTapShowNav" data-nav="history">过往订单</view>
+</view>
+
+<block wx:if="{{ currentNav == 'normal' }}">
+  <order-list id="order-list-component" url="normal" bind:myevent='onDataReady'></order-list>
+</block>
+
+<block wx:if="{{ currentNav == 'history' }}">
+  <view class="order-history">
+    <order-list id="order-history-list-component" url="history" bind:myevent='onDataReady'></order-list>
+  </view>
+</block>

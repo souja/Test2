@@ -1,0 +1,6 @@
+{
+  "onReachBottomDistance": 50,
+  "usingComponents": {
+    "order-list": "./order-list/index"
+  }
+}

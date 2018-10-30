@@ -1,0 +1,26 @@
+<import src='../template/template.wxml' />
+
+<template is='user-headnick' data='{{userInfo}}'></template>
+
+<view class='content'>
+  <text class='font40 blackText'>手机号注册</text>
+
+  <view class='inputBg bg1'>
+    <text class='font28 grayText text1'>中国+86</text>
+    <image class='arrow' src='../../res/imgs/arrow_down.png'></image>
+    <view class='verLine'></view>
+    <input type='number' class='blackText font28' placeholder='手机号码' placeholder-class='grayText font28' confirm-type='next' maxlength='11' bindinput='setupPhone'>18628084571</input>
+  </view>
+
+  <view class='inputBg bg2'>
+    <input password='true' class='blackText font28' placeholder='输入密码' placeholder-class='grayText font28' maxlength='18' confirm-type='done' bindinput='setupPwd'>123456</input>
+  </view>
+
+  <button class='yellowBg blackText font32 btn' hover-class='grayBg' bindtap='goVerify'>下一步</button>
+
+</view>
+
+<view class='textCenter loginContent'>
+  <text class='font32'>已有 Paires 账号？</text>
+  <text class='login font32' bindtap='goLogin'>立即登录</text>
+</view>

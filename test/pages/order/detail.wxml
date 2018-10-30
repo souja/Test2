@@ -1,0 +1,149 @@
+<view class="order-title">
+	<view>订单详情</view>
+	<view class="order-id">订单号: xxxxxxxxxxx</view>
+</view>
+
+<view class="detail-wrap">
+	<view class="order-item">
+		<view class="order-item-border-wrap">
+			<view class="order-dec-wrap">
+				<!-- 默认样式(黄底黑字) order-status-confirm order-status-complete order-status-cancel -->
+				<view class="order-status order-status-confirm">已确认</view>
+				<view class="order-date">
+					<view class="order-date-item">
+						<view class="order-date-label">入住</view>
+						<view class="order-date-detail">
+							<view>1月10日 周三</view>
+							<view>14:00</view>
+						</view>
+					</view>
+					<view class="order-date-item">
+						<view class="order-date-label">搬出</view>
+						<view class="order-date-detail">
+							<view>1月10日 周三</view>
+							<view>14:00</view>
+						</view>
+					</view>
+				</view>
+
+				<view class="order-img-wrap"><image src="../../res/imgs/test1.png" mode="aspectFill"></image></view>
+
+				<view class="order-address">
+					<view class="order-address-label">地址</view>
+					<view class="order-address-detail">北京朝阳区 三里屯太阳宫中路 新世纪家园1号公寓</view>
+				</view>
+
+				<!--未支付详情-->
+				<block wx:if= "{{ status == 'unpaid' }}">
+					<view class="order-address">
+						<view class="order-address-label">详情</view>
+						<view class="order-address-detail">独立房间A独立房间A独立房间A独立房间A独立房间A</view>
+					</view>
+					<view class="order-address">
+						<view class="order-address-label">总价</view>
+						<view class="order-address-detail">￥14,121</view>
+					</view>
+				</block>
+			</view>
+		</view>
+		<block wx:if="{{ status == 'unpaid' }}">
+			<view class="pay-btn">00:52 过期 | 立即付款</view>
+		</block>
+	</view>
+
+	<view class="info-title">房间信息</view>
+	<view class="info-wrap">
+		<view class="info-label">独立房间 A</view>
+		<view class="info-content">带独立卫生间带独立卫生间带独立卫生间带独立卫生间</view>
+	</view>
+	<view class="border"></view>
+
+	<view class="info-title">入住人</view>
+	<view class="info-wrap">
+		<view class="info-label">CCC</view>
+		<view class="info-content info-important">2 人</view>
+	</view>
+	<view class="border"></view>
+
+	<view class="info-title info-title-larger">价格信息</view>
+	<view class="info-wrap">
+		<view class="info-label label-bold">￥280 x 35 晚</view>
+		<view class="info-content info-delete">2 人</view>
+	</view>
+	<view class="info-wrap">
+		<view class="info-label">入住一个月以上,享 20% 折扣</view>
+		<view class="info-content info-content-bold">￥ 1212</view>
+	</view>
+
+	<view class="info-title-price">
+		<view>清洁费</view>
+		<view>￥40</view>
+	</view>
+	<view class="info-wrap">
+		<view class="info-label">入住前及入住后的房屋清洁</view>
+	</view>
+
+	<view class="info-title-price">
+		<view>客房设施</view>
+		<view>￥50</view>
+	</view>
+	<view class="info-wrap">
+		<view class="info-label" style="max-width: 90%">入住30天及以上，免费赠 150 元水电气，超额部分可通过客服自行付款。<view class="juccce">Juccce节能计划</view></view>
+	</view>
+
+	<view class="info-title-price">
+		<view>押金</view>
+		<view>￥6540</view>
+	</view>
+	<view class="info-wrap">
+		<view class="info-label">押金将在客人搬出后 2 小时内退换</view>
+	</view>
+
+	<view class="info-title-price">
+		<view>合计</view>
+		<view class="total-number">￥14,222</view>
+	</view>
+
+	<view class="nav-info nav-info-first">
+		<view>注意事项</view>
+		<image src="../../res/imgs/order/icon-order-detail-arrow.png"></image>
+	</view>
+
+	<navigator class="nav-info" url="/pages/order/order-explain/index">
+		<view>费用及退款政策</view>
+		<image src="../../res/imgs/order/icon-order-detail-arrow.png"></image>
+	</navigator>
+
+	<view class="bottom-wrap">
+		<view class="bottom-btn bottom-btn-green">获取入住指南</view>
+		<view class="bottom-btn" bindtap="onTapShowCancelDialog">取消订单</view>
+	</view>
+</view>
+
+<view class="modal-fixed" catchtouchmove="preventTouchMove" wx:if="{{ showCancelDialog }}">
+	<view class="modal-wrap">
+		<view class="modal-wrap-inner dialog-cancel">
+			<image src="../../res/imgs/order/icon-detail-close.png" class="modal-close" bindtap="onTapHideCancelDialog"></image>
+			<view class="order-explain">
+				<order-cancel-explain width="500rpx"></order-cancel-explain>
+				<view class="real-cancel-wrap"><view class="real-cancel-order" bindtap="onTapRealCancelOrder">确认取消</view></view>
+			</view>
+		</view>
+	</view>
+</view>
+
+<view class="modal-fixed" catchtouchmove="preventTouchMove" wx:if="{{ showCancelSuccessDialog }}">
+	<view class="modal-wrap">
+		<view class="modal-wrap-inner dialog-cancel-success">
+			<view class="cancel-success-title">申请成功</view>
+			<view class="cancel-success-notice">客服将在24小时内与您联系处理此退款申<view>请，或直接添加客服微信获得退款。</view></view>
+			<image src="../../res/imgs/order/qr-code.png" class="qr-code"></image>
+			<view class="cancel-success-text">
+				<view>您也可以长按二维码添 24/7</view>
+				<view>「Paires 客服」</view>
+				<view>微信号 Paires-service</view>
+			</view>
+			<view class="close-success-btn" bindtap="onTapCloseSuccessDialog">我知道了</view>
+		</view>
+	</view>
+</view>

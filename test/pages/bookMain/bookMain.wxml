@@ -1,0 +1,87 @@
+<import src='../template/template.wxml' />
+
+<view class='search-area'>
+  <view class='input-container'>
+    <icon type='search' size='14' color='#251F1F'></icon>
+    <input maxlength='20' placeholder='目的地' disabled='true' value='{{curCity==null?"":curCity}}' placeholder-class='grayText font28' bindtap='goSearch'></input>
+  </view>
+</view>
+
+
+<view class="select-nav-list">
+  <view class="select-item select-item-on" bindtap="onTapPriceNav">价格
+    <image src="../../res/imgs/search/icon-arrow-down.png"></image>
+  </view>
+  <view class="select-item">人数
+    <image src="../../res/imgs/search/icon-arrow-down.png"></image>
+  </view>
+  <view class="select-item-more">更多筛选</view>
+</view>
+
+
+<scroll-view scroll-y='true' class='body'>
+
+  <view class="res-item" wx:for="{{ list }}" bindtap='goRoomDetail'>
+    <view class="res-img-wrap">
+      <image src="../../res/imgs/test1.png" mode="aspectFill" class="res-img"></image>
+      <image src="../../res/imgs/logo-gxj.png" class="res-logo"></image>
+      <image src="../../res/imgs/search/icon-like.png" class="like-btn" mode="widthFix"></image>
+    </view>
+    <view class="res-content-wrap">
+      <view class="res-des res-limit-length">整套酒店式公寓，2 房间，容纳 4 人</view>
+      <view class="res-title res-limit-length">太阳宫中路 新纪家园1号公寓新纪家园1号公寓</view>
+      <view class="res-location res-limit-length">北京朝阳区 三里屯</view>
+      <view class="res-price-wrap">
+        <view class="res-price-header">
+          <view class="res-price-item">
+            <view class="res-price">￥280</view>/ 晚 单间</view>
+          <view class="res-price-item">
+            <view class="res-price">￥480</view>/ 晚 整套</view>
+        </view>
+        <view class="res-discount">月租折扣 20%</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='loading-area'>
+    <block wx:if='{{pageIndex<pageAmount}}'>
+      <block wx:if='{{loading}}'>
+        <text class='gray28 textCenterB'>加载中...</text>
+      </block>
+      <block wx:else>
+        <image bindtap='loadMore' class='loadingIcon' src='../../res/imgs/ic_loading.jpg'></image>
+      </block>
+    </block>
+    <block wx:else>
+      <text class='grayText font28'>没有更多了</text>
+    </block>
+  </view>
+</scroll-view>
+
+
+<template is='mNavigation' data='{{naviIndex}}'></template>
+
+
+<!--价格选择-->
+<view class="select-price-wrap" wx:if="{{ priceDialogVisible }}" catchtouchmove="preventTouchMove">
+  <view class="select-price-title">房型</view>
+  <view class="house-type">
+    <view class="house-type-item {{ houseType == 'single' ? 'house-type-on': '' }}" bindtap="onTapHouseType" data-type="single">单间</view>
+    <view class="house-type-item {{ houseType == 'all' ? 'house-type-on': '' }}" bindtap="onTapHouseType" data-type="all">整套</view>
+  </view>
+  <view class="select-price-title">租赁方式</view>
+  <view class="house-type">
+    <view class="house-type-item {{ payType == 'day' ? 'house-type-on': '' }}" bindtap="onTapPayType" data-type="day">按夜晚</view>
+    <view class="house-type-item {{ payType == 'month' ? 'house-type-on': '' }}" bindtap="onTapPayType" data-type="month">按月</view>
+  </view>
+
+  <view class="price-title">单夜价格</view>
+  <view class="price-detail">￥{{ slider.left }}-￥{{ slider.right }}</view>
+  <view class="slider-wrap">
+    <slider class='left' block-color='rgb(60,61,60)' bindchanging="leftSchange" min='{{ slider.min }}' max='{{ slider.max }}' value='{{ slider.left }}' selected-color='rgb(187,187,187)' backgroundColor='rgb(187,187,187)' block-size='24' step="{{ slider.step }}"
+    />
+    <slider class='right' block-color='rgb(60,61,60)' bindchanging="rightSchange" min='{{ slider.min }}' max='{{ slider.max }}' value='{{ slider.right }}' selected-color='rgb(187,187,187)' backgroundColor='rgb(187,187,187)' block-size='24' step="{{ slider.step }}"
+    />
+  </view>
+  <view class="confirm-price-btn" bindtap="onTapHidePriceSelect">完 成</view>
+</view>

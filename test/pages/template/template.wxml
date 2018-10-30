@@ -1,0 +1,34 @@
+<template name='user-headnick'>
+  <block wx:if='{{userInfo}}'>
+    <view class='textCenterB'>
+      <image class='headIcon' src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="blackText nickname font32">{{userInfo.nickName}}</text>
+    </view>
+  </block>
+  <block wx:else>
+    <view class='nickArea'>
+      <button class='authBtn' open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+        点击授权
+      </button>
+    </view>
+  </block>
+</template>
+
+<template name='mNavigation'>
+
+
+  <!-- Navigation-->
+  <view class="navigation">
+
+    <navigator url="../index/index" open-type="redirect" style='color:{{naviIndex==0?"#E6CB15":"#251f1f"}};'>首页</navigator>
+
+    <view class='cutLine'></view>
+
+    <navigator url="../bookMain/bookMain" open-type="redirect" style='color:{{naviIndex==1?"#E6CB15":"#251f1f"}};'>预定</navigator>
+
+    <view class='cutLine'></view>
+
+    <navigator url="../mine/mine" open-type="redirect" style='color:{{naviIndex==2?"#E6CB15":"#251f1f"}};'>我的</navigator>
+  </view>
+
+</template>

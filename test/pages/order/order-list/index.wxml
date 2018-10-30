@@ -1,0 +1,57 @@
+<view class="order-list">
+  <view class="order-item" wx:for="{{ orderList }}">
+    <view class="order-location">
+      <view class="order-location-bg"></view>
+      <view class="order-location-text">
+        <label>{{item.apartment.city.text}}</label>
+      </view>
+    </view>
+
+    <view class="order-item-border-wrap" bindtap="onTapGoDetail" data-id="">
+      <view class="order-dec-wrap">
+        <!-- 默认样式(黄底黑字) order-status-confirm order-status-complete order-status-cancel -->
+        <view class="order-status order-status-confirm">{{item.statusText}}</view>
+        <view class="order-date">
+          <view class="order-date-item">
+            <view class="order-date-label">入住</view>
+            <view class="order-date-detail">
+              <view>{{item.startDate.subString(0,10)}} 周三</view>
+            </view>
+          </view>
+          <view class="order-date-item">
+            <view class="order-date-label">搬出</view>
+            <view class="order-date-detail">
+              <view>{{item.endDate.subString(0,10)}} 周三</view>
+            </view>
+          </view>
+        </view>
+
+        <view class="order-img-wrap">
+          <image src="../../../res/imgs/test1.png" mode="aspectFill"></image>
+        </view>
+
+        <view class="order-address">
+          <view class="order-address-label">地址</view>
+          <view class="order-address-detail">北京朝阳区 三里屯太阳宫中路 新世纪家园1号公寓</view>
+        </view>
+
+        <!--未支付详情-->
+        <block wx:if="{{ status == 'unpaid' }}">
+          <view class="order-address">
+            <view class="order-address-label">详情</view>
+            <view class="order-address-detail">独立房间A独立房间A独立房间A独立房间A独立房间A</view>
+          </view>
+          <view class="order-address">
+            <view class="order-address-label">总价</view>
+            <view class="order-address-detail">$14,121</view>
+          </view>
+        </block>
+      </view>
+    </view>
+    <block wx:if="{{ status == 'unpaid' }}">
+      <view class="pay-btn">00:52 过期 | 立即付款</view>
+    </block>
+  </view>
+</view>
+<view class="loading" hidden="{{ !isScrollLoading }}">正在载入更多...</view>
+<view class="loading complete" wx:if="{{ pageIndex>=pageAmount }}">已加载全部</view>
