@@ -12,9 +12,9 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    weilai: 6,
-    zhengzai: 66,
-    wancheng: 666,
+    future: 0,
+    confirming: 0,
+    finished: 0,
     textMenuItems: [{
         title: "成为超级房东",
         subTitle: "托管房屋&nbsp;&nbsp;坐享收益",
@@ -42,56 +42,7 @@ Page({
    */
   onLoad: function(options) {
 
-    // 查看是否授权
-    wx.getSetting({
-      success: function(res) {
-        if (res.authSetting['scope.userInfo']) {
-          wx.getUserInfo({
-            success: function(res) {
-              console.log("已经授权过");
-              console.log(res.userInfo)
-              //用户已经授权过
-            }
-          })
-        } else {
-          console.log("没有授权过");
-        }
-      }
-    })
-
-    if (app.globalData.userInfo) {
-      console.log("有数据")
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse) {
-      console.log("可以用")
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        console.log(res);
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      console.log("没数据")
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          console.log(res);
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
-
-    console.log(this.data.hasUserInfo + " " + this.data.canIUse);
+    this.checkUserInfo();
 
     const ctx1 = wx.createCanvasContext('stara')
     ctx1.setFillStyle('#E6E522')
@@ -162,19 +113,8 @@ Page({
           userInfo: res.userInfo,
           hasUserInfo: true,
         })
-        var puinfo = wx.getStorage({
-          key: 'puinfo',
-          success: function(res) {
-            console.log("有缓存")
-            console.log("pUserInfo:" + res.data);
-            app.pUserInfo = JSON.parse(res.data);
-          },
-          complete: function(res) {
-            console.log("没有缓存")
-            wx.navigateTo({
-              'url': '../login/login'
-            })
-          }
+        wx.navigateTo({
+          'url': '../login/login'
         })
       }
     })
@@ -205,7 +145,85 @@ Page({
       })
     }
   },
+  getCount: function(flag) {
+    var condition;
+    switch (flag) {
+      case 0: //未来入住
+        condition = [{
+          field: 'status',
+          op: '=',
+          value: 'CONFIRMED'
+        }, {
+          field: 'startDate',
+          op: '>',
+          value: app.getNowFormatDate()
+        }]
+        break;
+      case 1: //正在确认
+        condition = []
+        break;
+      default: //完成旅程
+        condition = [{
+          field: 'status',
+          op: '=',
+          value: 'CONFIRMED'
+        }, {
+          field: 'endDate',
+          op: '<=',
+          value: app.getNowFormatDate()
+        }]
+    }
 
+    api._post(flag != 1 ? app.urls.searchOrder : app.urls.confirmingOrderList, {
+      condition: condition
+    }).then(res => {
+      var tag = flag == 0 ? "未来入住" : (flag == 1 ? "正在确认" : "完成旅程");
+      console.log(tag)
+      console.log(res)
+
+
+      if (res.status == 200) {
+        var length = res.data.list.length;
+        console.log(tag + ":" + length);
+        if (length > 0) {
+          switch (flag) {
+            case 0:
+              this.setData({
+                future: length
+              })
+              break;
+            case 1:
+              this.setData({
+                confiming: length
+              })
+              break;
+            default:
+              this.setData({
+                finished: length
+              })
+
+          }
+        }
+      }
+    }).catch(e => {
+      console.log(e)
+    })
+  },
+  checkUserInfo: function() {
+    if (app.globalData.userInfo) {
+      console.log("有wx用户数据")
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        hasUserInfo: true
+      })
+    }
+    if (app.pUserInfo) {
+      console.log("有Paires用户数据");
+      this.getCount(0); //未来入住
+      this.getCount(1); //正在确认
+      this.getCount(2); //完成旅程
+    }
+  },
   /**
    * 用户点击右上角分享
    */

@@ -1,6 +1,8 @@
 {
   "pages":[
+    "pages/service/service",
     "pages/index/index",
+    "pages/mine/mine",
     "pages/test/test",
     "pages/notice/notice",
     "pages/collection/collection",
@@ -17,7 +19,6 @@
     "pages/login/login",
     "pages/order/detail",
     "pages/order/unpaid",
-    "pages/mine/mine",
     "pages/searchCity/searchCity",
     "pages/findPwd/findPwd",
     "pages/register/register",

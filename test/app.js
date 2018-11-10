@@ -17,8 +17,13 @@ App({
     //获取个人资料
     getPUserinfo: '/pairesUserInfo',
     //更新用户信息
-    updateUserInfo: '/pairesUserInfo/update'
-
+    updateUserInfo: '/pairesUserInfo/update',
+    //搜索订单
+    searchOrder: '/pairesBooking/search',
+    //正在确认订单列表
+    confirmingOrderList: '/pairesBooking/confirmingList',
+    //微信小程序内支付
+    requestPay: '/pairesBooking/wxmpPay'
   },
   validatemobile: function(mobile) {
     if (!mobile || mobile.length == 0) {
@@ -78,7 +83,6 @@ App({
       strDate = "0" + strDate;
     }
     var currentdate = year + seperator1 + month + seperator1 + strDate;
-    console.log("getNowFormatDate:" + currentdate);
     return currentdate;
   },
   toast: function(e) {
@@ -139,8 +143,7 @@ App({
   },
   globalData: {
     wxCode: null, //登录微信后拿到的code
-    userInfo: null, //微信用户信息
-    moveInOut: null
+    userInfo: null //微信用户信息
   },
   pUserInfo: null, //Paires用户信息
   curOrder: null

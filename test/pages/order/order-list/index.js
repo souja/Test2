@@ -61,6 +61,7 @@ Component({
       if (this.data.pageIndex >= this.data.pageAmount) return;
 
       if (!this.data.isScrollLoading && !this.data.isScrollLoadingComplete) {
+        console.log("加载下一页订单")
         this.setData({
           isScrollLoading: true
         })
@@ -83,7 +84,7 @@ Component({
       } else {
         requestParam.page = requestParamIn.page;
       }
-      api._post('/pairesBooking/search', requestParam).then(res => {
+      api._post(app.urls.searchOrder, requestParam).then(res => {
         console.log(res)
 
         if (res.status == 200) {
@@ -141,6 +142,7 @@ Component({
       };
       switch (this.properties.url) {
         case 'history': //过往
+          console.log("获取过往订单")
           requestParam.condition = [{
             field: 'endDate',
             op: '<=',
@@ -149,9 +151,11 @@ Component({
           this.getCommonList(pageIndex, requestParam);
           break;
         case 'unpaid': //未支付
+          console.log("获取未支付订单")
           this.getUnpayOrders(false, requestParam);
           break;
         default: //normal
+          console.log("获取我的旅程订单+待付款订单Count")
           requestParam.condition = [{
             field: 'endDate',
             op: '>',
@@ -163,7 +167,7 @@ Component({
       }
     },
     getCommonList(pageIndex, requestParam) {
-      api._post('/pairesBooking/search', requestParam).then(res => {
+      api._post(app.urls.searchOrder, requestParam).then(res => {
         console.log(res)
 
         if (res.status == 200) {
@@ -254,7 +258,7 @@ Component({
       }
     },
     requestPay(orderId) {
-      api._post('/pairesBooking/wxmpPay', {
+      api._post(app.urls.requestPay, {
         bookingID: orderId
       }).then(res => {
         console.log(res)

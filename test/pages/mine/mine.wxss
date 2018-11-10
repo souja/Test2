@@ -182,3 +182,17 @@ canvas {
   font-size: 28rpx;
   color: #fff;
 }
+
+.contact-service{
+  color: white;
+  position: absolute;
+  bottom: 20rpx;
+  right: 20rpx;
+  width: 120rpx;
+  height: 44rpx;
+  text-align: center;
+  line-height: 44rpx;
+  border:1rpx solid #979795;
+  font-size: 20rpx;
+  border-radius: 22rpx;
+}

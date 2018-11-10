@@ -33,7 +33,7 @@ Page({
     showCancelSuccessDialog: false
   },
   onLoad(opt) {
-    this.getOrderDetail();
+    // this.getOrderDetail();
     var dateIn = new Date(app.curOrder.startDate);
     var dateOut = new Date(app.curOrder.endDate);
 
@@ -61,31 +61,35 @@ Page({
       orderDetail: app.curOrder
     })
   },
+  requstPay: function() {
+    // api._post(app.urls.requestPay, {
+    //   bookingID: this.data.orderDetail.id
+    // }).then(res => {
+    //   console.log(res)
 
-  getOrderDetail() {
-    var requestParam = {
-      condition: [{
-        field: 'id',
-        op: '=',
-        value: app.curOrder.id
-      }]
-    };
+    //   if (res.status == 200) {
 
-    api._post('/pairesBooking/search', requestParam).then(res => {
-      console.log(res)
+    //     console.log("请求支付成功");
 
-      if (res.status == 200) {
-
-        console.log("获取订单详情成功");
-
-      } else {
-        var errMsg = res.errmsg;
-        console.log("获取订单详情成功失败 " + errMsg);
-      }
-    }).catch(e => {
-      console.log(e)
-    })
-
+    //   } else {
+    //     var errMsg = res.errmsg;
+    //     console.log("请求支付失败 " + errMsg);
+    //   }
+    // }).catch(e => {
+    //   console.log(e)
+    // })
+    var timeStamp = Date.parse(new Date()) / 1000;
+    console.log('timeStamp:' + timeStamp);
+    var nonceStr = '';
+    console.log('nonceStr:' + nonceStr);
+    // wx.requestPayment({
+    //   timeStamp: timeStamp,
+    //   nonceStr: '',
+    //   package: '',
+    //   signType: '',
+    //   paySign: '',
+    // })
+    app.toast("todo")
   },
   preventTouchMove() {},
   onTapShowCancelDialog() {
@@ -109,5 +113,25 @@ Page({
     this.setData({
       showCancelSuccessDialog: false
     })
+  },
+  //当前是用的列表中的数据，是否需要联网再获取一次订单详情
+  getOrderDetail() {
+    api._get('/pairesBooking/' + app.curOrder.id, {
+      condition: []
+    }).then(res => {
+      console.log(res)
+
+      if (res.status == 200) {
+
+        console.log("获取订单详情成功");
+
+      } else {
+        var errMsg = res.errmsg;
+        console.log("获取订单详情失败 " + errMsg);
+      }
+    }).catch(e => {
+      console.log(e)
+    })
+
   }
 })

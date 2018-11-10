@@ -98,11 +98,8 @@ Page({
       password: passwd
     }).then(res => {
       console.log(res);
+      console.log(res.header);
       if (res.status == 200) {
-        wx.setStorage({
-          key: 'token',
-          data: res.data._sessionToken,
-        })
         app.pUserInfo = res.data;
         wx.setStorage({
           key: "puinfo",
@@ -123,21 +120,6 @@ Page({
       app.toast(e.data.errmsg);
     })
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
   /**
    * 用户点击右上角分享
    */

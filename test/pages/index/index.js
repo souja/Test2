@@ -29,15 +29,29 @@ Page({
   },
   onLoad: function() {
 
-    var puinfo = wx.getStorage({
+    wx.getStorage({
       key: 'puinfo',
       success: function(res) {
-        console.log("index-get pUserInfo suc")
+        console.log("获取Paires本地用户信息成功");
         console.log(res.data);
-        app.pUserInfo = JSON.parse(res.data);
+
+        //检查cookie是否过期
+        var cookie = wx.getStorageSync('paires_cookie');
+        if (api.isEmpty(cookie)) {
+          console.log("cookie 为空 或 已过期");
+          wx.removeStorage({
+            key: 'puinfo',
+            success: function(res) {
+              console.log("移除本地用户数据成功")
+            }
+          })
+        } else {
+          console.log("cookie有效")
+          app.pUserInfo = JSON.parse(res.data);
+        }
       }
     })
-   
+
 
     if (app.globalData.userInfo) {
       this.setData({
@@ -45,16 +59,15 @@ Page({
         hasUserInfo: true
       })
     } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {
+        console.log(res.userInfo);
+        app.globalData.userInfo = res.userInfo;
         this.setData({
           userInfo: res.userInfo,
           hasUserInfo: true
         })
       }
     } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
       wx.getUserInfo({
         success: res => {
           app.globalData.userInfo = res.userInfo
@@ -65,6 +78,7 @@ Page({
         }
       })
     }
+
     if (app.globalData.cityList == null) {
       console.log("no city")
       this.getCities()
@@ -88,7 +102,6 @@ Page({
   },
   //获取城市列表
   getCities: function(e) {
-
     api._get('/city').then(res => {
       console.log(res)
       this.setData({

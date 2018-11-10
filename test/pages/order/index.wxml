@@ -1,7 +1,7 @@
 <block wx:if='{{currentNav=="normal"}}'>
   <navigator class="unpaid-order-notice" url="/pages/order/unpaid">
     <view class="unpaid-status"></view>
-    <view class="unpaid-desc">{{unpayCount}} 个代付款订单</view>
+    <view class="unpaid-desc">{{unpayCount}} 个待付款订单</view>
     <image src="../../res/imgs/order/icon-order-index-unpaid-arrow.png" class="unpaid-img"></image>
   </navigator>
 </block>

@@ -11,7 +11,7 @@
       <view class="order-item-border-wrap" bindtap="onTapGoDetail" data-index="{{index}}">
         <view class="order-dec-wrap">
           <!-- 默认样式(黄底黑字) order-status-confirm order-status-complete order-status-cancel -->
-          <view class="order-status order-status-confirm">{{order.statusText}}</view>
+          <view class="order-status {{ order.status=='CONFIRMED' ? 'order-status-confirm' : '' }}">{{order.statusText}}</view>
           <view class="order-date">
             <view class="order-date-item">
               <view class="order-date-label">入住</view>
@@ -57,9 +57,6 @@
 </block>
 <block wx:elif='{{errMsg!=null}}'>
   <view class='emptyTip'>{{errMsg}}</view>
-</block>
-<block wx:else>
-  <view class='emptyTip'>暂无订单</view>
 </block>
 <view class="loading" hidden="{{ !isScrollLoading }}">正在载入更多...</view>
 <view class="loading complete" wx:if="{{ pageIndex>=pageAmount }}">已加载全部</view>

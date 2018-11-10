@@ -8,7 +8,7 @@
     <view class="order-item-border-wrap">
       <view class="order-dec-wrap">
         <!-- 默认样式(黄底黑字) order-status-confirm order-status-complete order-status-cancel -->
-        <view class="order-status order-status-confirm">{{orderDetail.statusText}}</view>
+        <view class="order-status {{ order.status=='CONFIRMED' ? 'order-status-confirm' : '' }}">{{orderDetail.statusText}}</view>
         <view class="order-date">
           <view class="order-date-item">
             <view class="order-date-label">入住</view>
@@ -47,79 +47,81 @@
       </view>
     </view>
     <block wx:if="{{ orderDetail.status == 'ORDERED' }}">
-      <view class="pay-btn">立即付款</view>
+      <view class="pay-btn" bindtap='requstPay'>立即付款</view>
     </block>
   </view>
 
-  <view class="info-title">房间信息</view>
-  <view class="info-wrap">
-    <view class="info-label">{{orderDetail.room.roomName}}</view>
-    <view class="info-content">{{orderDetail.room.roomDescription}}</view>
-  </view>
-  <view class="border"></view>
-
-  <view class="info-title">入住人</view>
-  <view class="info-wrap">
-    <view class="info-label">{{orderDetail.realName}}</view>
-    <view class="info-content info-important">{{orderDetail.personCount}} 人</view>
-  </view>
-  <view class="border"></view>
-
-  <view class="info-title info-title-larger">价格信息</view>
-  <view class="info-wrap">
-    <view class="info-label label-bold">￥{{orderDetail.room.roomPricePerDay}} x {{rentDays}} 晚</view>
-    <view class="info-content info-delete">{{orderDetail.originalRent}}</view>
-  </view>
-  <view class="info-wrap">
-    <view class="info-label">入住一个月以上,享 20% 折扣</view>
-    <view class="info-content info-content-bold">￥ {{orderDetail.actualRent}}</view>
-  </view>
-
-  <view class="info-title-price">
-    <view>清洁费</view>
-    <view>￥{{orderDetail.cleaningFee}}</view>
-  </view>
-  <view class="info-wrap">
-    <view class="info-label">入住前及入住后的房屋清洁</view>
-  </view>
-
-  <view class="info-title-price">
-    <view>客房设施</view>
-    <view>￥{{orderDetail.facilityFee}}</view>
-  </view>
-  <view class="info-wrap">
-    <view class="info-label" style="max-width: 90%">入住30天及以上，免费赠 150 元水电气，超额部分可通过客服自行付款。
-      <view class="juccce">Juccce节能计划</view>
+  <block wx:if='{{orderDetail.status == "CONFIRMED"}}'>
+    <view class="info-title">房间信息</view>
+    <view class="info-wrap">
+      <view class="info-label">{{orderDetail.room.roomName}}</view>
+      <view class="info-content">{{orderDetail.room.roomDescription}}</view>
     </view>
-  </view>
+    <view class="border"></view>
 
-  <view class="info-title-price">
-    <view>押金</view>
-    <view>￥{{orderDetail.deposit}}</view>
-  </view>
-  <view class="info-wrap">
-    <view class="info-label">押金将在客人搬出后 2 小时内退换</view>
-  </view>
+    <view class="info-title">入住人</view>
+    <view class="info-wrap">
+      <view class="info-label">{{orderDetail.realName}}</view>
+      <view class="info-content info-important">{{orderDetail.personCount}} 人</view>
+    </view>
+    <view class="border"></view>
 
-  <view class="info-title-price">
-    <view>合计</view>
-    <view class="total-number">￥{{orderDetail.totalPrice}}</view>
-  </view>
+    <view class="info-title info-title-larger">价格信息</view>
+    <view class="info-wrap">
+      <view class="info-label label-bold">￥{{orderDetail.room.roomPricePerDay}} x {{rentDays}} 晚</view>
+      <view class="info-content info-delete">{{orderDetail.originalRent}}</view>
+    </view>
+    <view class="info-wrap">
+      <view class="info-label">入住一个月以上,享 20% 折扣</view>
+      <view class="info-content info-content-bold">￥ {{orderDetail.actualRent}}</view>
+    </view>
 
-  <view class="nav-info nav-info-first">
-    <view>注意事项</view>
-    <image src="../../res/imgs/order/icon-order-detail-arrow.png"></image>
-  </view>
+    <view class="info-title-price">
+      <view>清洁费</view>
+      <view>￥{{orderDetail.cleaningFee}}</view>
+    </view>
+    <view class="info-wrap">
+      <view class="info-label">入住前及入住后的房屋清洁</view>
+    </view>
 
-  <navigator class="nav-info" url="/pages/order/order-explain/index">
-    <view>费用及退款政策</view>
-    <image src="../../res/imgs/order/icon-order-detail-arrow.png"></image>
-  </navigator>
+    <view class="info-title-price">
+      <view>客房设施</view>
+      <view>￥{{orderDetail.facilityFee}}</view>
+    </view>
+    <view class="info-wrap">
+      <view class="info-label" style="max-width: 90%">入住30天及以上，免费赠 150 元水电气，超额部分可通过客服自行付款。
+        <view class="juccce">Juccce节能计划</view>
+      </view>
+    </view>
 
-  <view class="bottom-wrap">
-    <view class="bottom-btn bottom-btn-green">获取入住指南</view>
-    <view class="bottom-btn" bindtap="onTapShowCancelDialog">取消订单</view>
-  </view>
+    <view class="info-title-price">
+      <view>押金</view>
+      <view>￥{{orderDetail.deposit}}</view>
+    </view>
+    <view class="info-wrap">
+      <view class="info-label">押金将在客人搬出后 2 小时内退换</view>
+    </view>
+
+    <view class="info-title-price">
+      <view>合计</view>
+      <view class="total-number">￥{{orderDetail.totalPrice}}</view>
+    </view>
+
+    <view class="nav-info nav-info-first">
+      <view>注意事项</view>
+      <image src="../../res/imgs/order/icon-order-detail-arrow.png"></image>
+    </view>
+
+    <navigator class="nav-info" url="/pages/order/order-explain/index">
+      <view>费用及退款政策</view>
+      <image src="../../res/imgs/order/icon-order-detail-arrow.png"></image>
+    </navigator>
+
+    <view class="bottom-wrap">
+      <view class="bottom-btn bottom-btn-green">获取入住指南</view>
+      <view class="bottom-btn" bindtap="onTapShowCancelDialog">取消订单</view>
+    </view>
+  </block>
 </view>
 
 <view class="modal-fixed" catchtouchmove="preventTouchMove" wx:if="{{ showCancelDialog }}">
